@@ -1,0 +1,27 @@
+[
+  {
+    "restaurantId": "1",
+    "name": "Pizza Party",
+    "location": "[25.2084, 55.2719]"
+  },
+  {
+    "restaurantId": "2",
+    "name": "Burrito Party",
+    "location": "[13.756331, 100.501762]"
+  },
+  {
+    "restaurantId": "3",
+    "name": "Noodles Party",
+    "location": "[23.634501, -102.552788]"
+  },
+  {
+    "restaurantId": "4",
+    "name": "Sushi Party",
+    "location": "[47.606209, -122.332069]"
+  },
+  {
+    "restaurantId": "5",
+    "name": "Sandwich Party",
+    "location": "[35.689487, 139.691711]"
+  }
+]

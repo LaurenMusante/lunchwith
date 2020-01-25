@@ -1,0 +1,44 @@
+[
+  {
+    "userId": "1",
+    "firstName": "Fred",
+    "lastName": "Fredrickson",
+    "location": "[25.2084, 55.2719]",
+    "mentor": "true"
+  },
+  {
+    "userId": "2",
+    "firstName": "John",
+    "lastName": "Johnson",
+    "location": "[13.756331, 100.501762]",
+    "mentor": "true"
+  },
+  {
+    "userId": "3",
+    "firstName": "Sally",
+    "lastName": "Sallerson",
+    "location": "[23.634501, -102.552788]",
+    "mentor": "false"
+  },
+  {
+    "userId": "4",
+    "firstName": "Kelly",
+    "lastName": "McKelly",
+    "location": "[47.606209, -122.332069]",
+    "mentor": "false"
+  },
+  {
+    "userId": "5",
+    "firstName": "Sam",
+    "lastName": "Sampson",
+    "location": "[35.689487, 139.691711]",
+    "mentor": "false"
+  },
+  {
+    "userId": "6",
+    "firstName": "George",
+    "lastName": "St. George",
+    "location": "[-19.015438, 29.154858]",
+    "mentor": "true"
+  }
+]
