@@ -1,7 +1,5 @@
-import express from 'express';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-const app = express();
-
-app.listen(3000, () =>
-	console.log('Example app listening on port 3000')
-	);
+ReactDOM.render(<App />, document.getElementById('root'));
