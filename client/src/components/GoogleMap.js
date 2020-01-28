@@ -14,8 +14,8 @@ export class GoogleMap extends React.Component {
         zoom={14}
         style={mapStyles}
         initialCenter={{
-          lat: -1.2884,
-          lng: 36.8233
+          lat: 45.51223,
+          lng: -122.658722
         }}
       />
     );
