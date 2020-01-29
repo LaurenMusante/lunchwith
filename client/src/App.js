@@ -6,7 +6,6 @@ function App() {
   return (
     <div>
       <p>{data.map(user => user.firstName)}</p>
-      <p>{restaurant.map(restaurant => restaurant.location)}</p>
     </div>
   );
 }
