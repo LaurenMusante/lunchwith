@@ -2,26 +2,31 @@
   {
     "restaurantId": "1",
     "name": "Pizza Party",
-    "location": "[45.536428, -122.688748]"
+    "lat": "45.536428",
+    "lng": "122.688748"
   },
   {
     "restaurantId": "2",
     "name": "Burrito Party",
-    "location": "[45.537585, -122.692750]"
+    "lat": "45.537585",
+    "lng": "-122.692750"
   },
   {
     "restaurantId": "3",
     "name": "Noodles Party",
-    "location": "[45.532801, -122.694539]"
+    "lat": "45.532801",
+    "lng": "-122.694539"
   },
   {
     "restaurantId": "4",
     "name": "Sushi Party",
-    "location": "[45.529330, -122.683346]"
+    "lat": "45.529330",
+    "lng": "-122.683346"
   },
   {
     "restaurantId": "5",
     "name": "Sandwich Party",
-    "location": "[45.521428, -122.697090]"
+    "lat": "45.521428",
+    "lng": "-122.697090"
   }
 ]
