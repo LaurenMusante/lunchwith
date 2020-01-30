@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Form, Header, Icon, Modal } from 'semantic-ui-react';
+import { Button, Form, Header, Icon, Image, Modal } from 'semantic-ui-react';
 
 const LoginButton = () => (
-  <Modal trigger={<Button>Log In</Button>} basic size="small">
+<Modal trigger={<Button>Log In</Button>} basic size="small">
     <Header icon="utensil spoon" content="Log in to Your Account" />
     <Modal.Content>
       <Form>
@@ -20,3 +20,5 @@ const LoginButton = () => (
 );
 
 export default LoginButton;
+
+  
