@@ -6,6 +6,7 @@ function App() {
   return (
     <div>
       <p>{data.map(user => user.firstName)}</p>
+      <p>{data.map(user => user.lastName)}</p>
     </div>
   );
 }
