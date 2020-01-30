@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Dropdown, Form, Header, Icon, Modal } from 'semantic-ui-react';
 import { blockStatement } from '@babel/types';
 
-
 const mentorOptions = [
   { key: 'mr', text: 'Mentor', value: 'mentor' },
   { key: 'me', text: 'Mentee', value: 'mentee' },
@@ -37,53 +36,37 @@ var dropdownStyle = {
   backgroundColor: 'teal'
 }
 
-var divStyle = {
-  color: 'white'
-}
-
 const SignUpButton = () => (
-  <Modal trigger={<Button>Sign Up</Button>} basic size="small">
-    <div>
-      <Header icon="user circle" content="Become a member today" />
-      <Modal.Content>
-        <Form>
-          <Form.Group widths="equal">
-            <Form.Input fluid label="First name" placeholder="First name" />
-            <Form.Input fluid label="Last name" placeholder="Last name" />
-            <Form.Select
-              fluid
-              label="I'd like to be a..."
-              options={mentorOptions}
-              placeholder="Mentor"
-            />
-          </Form.Group>
-          <Dropdown
-            style={dropdownStyle}
-            placeholder="Skills"
+  <Modal trigger={<Button>Basic Modal</Button>} basic size="small">
+    <Header icon="user circle" content="Become a member today" />
+    <Modal.Content>
+      <Form>
+        <Form.Group widths="equal">
+          <Form.Input fluid label="First name" placeholder="First name" />
+          <Form.Input fluid label="Last name" placeholder="Last name" />
+          <Form.Select
             fluid
-            multiple
-            select
-            options={skillOptions}
+            label="I'd like to be a..."
+            options={mentorOptions}
+            placeholder="Mentor"
           />
-          <br></br>
-          <Form.Checkbox label="I agree to the Terms and Conditions" />
-          <Form.Button>Join the Community</Form.Button>
-        </Form>
-      </Modal.Content>
-  </div>
-    </Modal>
+        </Form.Group>
+        <Dropdown
+          style={dropdownStyle}
+          placeholder="Skills"
+          fluid
+          multiple
+          select
+          options={skillOptions}
+        />
+        <br></br>
+        <Form.Checkbox label="I agree to the Terms and Conditions" />
+        <Form.Button>Join the Community</Form.Button>
+      </Form>
+    </Modal.Content>
+  </Modal>
 );
 
 export default SignUpButton;
 
 
-// Become a <mentor/mentee>
-
-// Name
-// Email
-// LinkedIN?
-
-// Interests 
-// //similar to linked in, select multiple with a responsive search bar
-
-// Join Community button

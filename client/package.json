@@ -12,7 +12,6 @@
     "react-google-maps": "^9.4.5",
     "react-scripts": "3.3.0",
     "semantic-ui-react": "^0.88.2"
-
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,10 +1,10 @@
-//logo
 //logged in ? user avatar : "log in" button
-//hamburger menu that shows a drawer
 
 import React from 'react';
 import { Icon, Input, Menu } from 'semantic-ui-react';
 import './Header.css'
+import SignUpButton from './SignUpButton';
+import LoginButton from './LoginButton'
 
 
 const Header = () => {
@@ -22,7 +22,8 @@ const Header = () => {
             placeholder="Search Professions..."
           />
         </Menu.Item>
-        <Menu.Item name="login">Log In</Menu.Item>
+        <Menu.Item name="login"><LoginButton /></Menu.Item>
+        <Menu.Item name="login"><SignUpButton /></Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item name="signup">
             <Icon circular name="bars" />
