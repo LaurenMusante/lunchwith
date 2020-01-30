@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Dropdown, Form, Header, Icon, Modal } from 'semantic-ui-react';
+import { blockStatement } from '@babel/types';
 
 
 const mentorOptions = [
@@ -28,57 +29,52 @@ const skillOptions = [
   { key: 'ux', text: 'User Experience', value: 'ux' }
 ];
 
-const SignUpPage = () => (
+// var modalStyle = {
+//   backgroundColor: 'red'
+// }
+
+var dropdownStyle = {
+  backgroundColor: 'teal'
+}
+
+var divStyle = {
+  color: 'white'
+}
+
+const SignUpButton = () => (
   <Modal trigger={<Button>Sign Up</Button>} basic size="small">
-    <Header icon="user circle" content="Become a member today" />
-    <Modal.Content>
-      <Form>
-        <Form.Group widths="equal">
-          <Form.Input fluid label="First name" placeholder="First name" />
-          <Form.Input fluid label="Last name" placeholder="Last name" />
-          <Form.Select
+    <div>
+      <Header icon="user circle" content="Become a member today" />
+      <Modal.Content>
+        <Form>
+          <Form.Group widths="equal">
+            <Form.Input fluid label="First name" placeholder="First name" />
+            <Form.Input fluid label="Last name" placeholder="Last name" />
+            <Form.Select
+              fluid
+              label="I'd like to be a..."
+              options={mentorOptions}
+              placeholder="Mentor"
+            />
+          </Form.Group>
+          <Dropdown
+            style={dropdownStyle}
+            placeholder="Skills"
             fluid
-            label="I'd like to be a..."
-            options={mentorOptions}
-            placeholder="Mentor"
+            multiple
+            select
+            options={skillOptions}
           />
-        </Form.Group>
-        {/* <Form.Group inline>
-          <label>Size</label>
-          <Form.Radio
-            label="Small"
-            value="sm"
-            checked={value === 'sm'}
-            onChange={this.handleChange}
-          />
-          <Form.Radio
-            label="Medium"
-            value="md"
-            checked={value === 'md'}
-            onChange={this.handleChange}
-          />
-          <Form.Radio
-            label="Large"
-            value="lg"
-            checked={value === 'lg'}
-            onChange={this.handleChange}
-          />
-        </Form.Group> */}
-        <Dropdown
-          placeholder="Skills"
-          fluid
-          multiple
-          select
-          options={skillOptions}
-        />
-        <Form.Checkbox label="I agree to the Terms and Conditions" />
-        <Form.Button>Join the Community</Form.Button>
-      </Form>
-    </Modal.Content>
-  </Modal>
+          <br></br>
+          <Form.Checkbox label="I agree to the Terms and Conditions" />
+          <Form.Button>Join the Community</Form.Button>
+        </Form>
+      </Modal.Content>
+  </div>
+    </Modal>
 );
 
-export default SignUpPage;
+export default SignUpButton;
 
 
 // Become a <mentor/mentee>
