@@ -37,7 +37,7 @@ var dropdownStyle = {
 }
 
 const SignUpButton = () => (
-  <Modal trigger={<Button>Basic Modal</Button>} basic size="small">
+  <Modal trigger={<Button>Sign Up</Button>} basic size="small">
     <Header icon="user circle" content="Become a member today" />
     <Modal.Content>
       <Form>
