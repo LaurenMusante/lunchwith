@@ -36,9 +36,25 @@ var dropdownStyle = {
   backgroundColor: 'teal'
 }
 
+var headerStyle = {
+  textAlign: 'center',
+  fontSize: '40px'
+}
+
+var fontStyle = {
+  fontColor: 'white',
+  size: '100px',
+  // backgroundColor: 'red'
+}
+
 const SignUpButton = () => (
-  <Modal trigger={<Button>Sign Up</Button>} basic size="small">
-    <Header icon="user circle" content="Become a member today" />
+  <Modal
+    trigger={<Button>Sign Up</Button>}
+    basic
+    size="small"
+    style={fontStyle}
+  >
+    <Header icon="user circle" content="Become a member today" style={headerStyle} />
     <Modal.Content>
       <Form>
         <Form.Group widths="equal">
