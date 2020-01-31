@@ -9,8 +9,8 @@ function App() {
   return (
     <div>
       <GoogleMap />
-      <Header />
-      {/* <HamburgerDrawer /> */}
+      {/* <Header /> */}
+      <HamburgerDrawer />
       <p>{data.map(user => user.firstName)}</p>
     </div>
   );
