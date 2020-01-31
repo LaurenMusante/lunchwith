@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Dropdown, Form, Header, Icon, Modal } from 'semantic-ui-react';
-import { blockStatement } from '@babel/types';
+import './SignUpButton.css'
 
 const mentorOptions = [
   { key: 'mr', text: 'Mentor', value: 'mentor' },
