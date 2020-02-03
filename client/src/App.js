@@ -7,7 +7,7 @@ import restaurant from './data/RestaurantData.json';
 function App() {
   return (
     <div>
-      {/* <GoogleMap /> */}
+      <GoogleMap />
       <HamburgerDrawer />
       <p>{data.map(user => user.firstName)}</p>
     </div>
