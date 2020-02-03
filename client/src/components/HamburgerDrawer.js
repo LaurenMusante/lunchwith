@@ -1,56 +1,42 @@
 
-import React from 'react';
-import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import styled from 'styled-components';
+import { Button, Icon } from 'semantic-ui-react'
 
+const Drawer = styled.div`
 
-var contentStyle = {
-	width: '30%',
-	height: '100%'
+`
+const DrawerButton = styled.button`
+  background-color: #00b3b3;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 10px;
+  border: #00b3b3;
+`;
+
+const HamburgerDrawer = () => {
+  const [isOpen, setIsOpen] = useState(false);
+	if (!isOpen) {
+		document.getElementById('root').style.filter = 'blur(0px)';
+		return (
+      <DrawerButton onClick={() => setIsOpen(true)}>
+        <Icon name="bars"></Icon>
+      </DrawerButton>
+    );
+	}
+
+		document.getElementById('root').style.filter = 'blur(5px)';
+
+	return ReactDOM.createPortal(
+    <Drawer>
+      <Button>Log In</Button>
+      <Button>View Profile</Button>
+      <Button>View Schedule</Button>
+      <Button>Sign Out</Button>
+    </Drawer>
+  );
 }
-const SidebarExampleVisible = () => (
-  <Sidebar.Pushable as={Segment}>
-    <Sidebar
-      style={contentStyle}
-      as={Menu}
-      animation="overlay"
-      icon="labeled"
-      inverted
-      vertical
-      visible
-      width="thin"
-    >
-      <Menu.Item as="a">
-        <Icon name="circle" />
-        View Profile
-      </Menu.Item>
-      <Menu.Item as="a">
-        <Icon name="circle" />
-        View Schedule
-      </Menu.Item>
-      <Menu.Item as="a">
-        <Icon name="circle" />
-        Messages
-      </Menu.Item>
-      <Menu.Item as="a">
-        <Icon name="circle" />
-        Log Out
-      </Menu.Item>
-    </Sidebar>
 
-    <Sidebar.Pusher>
-      <Segment basic>
-        <Header as="h3">Application Content</Header>
-        <Image src="/images/wireframe/paragraph.png" />
-      </Segment>
-    </Sidebar.Pusher>
-  </Sidebar.Pushable>
-);
-
-export default SidebarExampleVisible;
-
-
-
-
-  // handleHideClick = () => this.setState({ visible: false });
-  // handleShowClick = () => this.setState({ visible: true });
-  // handleSidebarHide = () => this.setState({ visible: false });
+export default HamburgerDrawer;
