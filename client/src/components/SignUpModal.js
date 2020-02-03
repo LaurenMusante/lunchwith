@@ -1,10 +1,11 @@
 import React, { useState} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
-import { Dropdown, Form } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
 const Modal = styled.div`
   background-color: #4d4d4d;
+  border-radius: 20px;
   width: 60%;
   height: 60%;
   z-index: 20;
@@ -19,17 +20,21 @@ const Modal = styled.div`
 const Header = styled.h1`
   text-align: center;
   position: absolute;
-	top: 1%;
+	top: 0;
 	color: white;
+	padding: 2px;
 `;
 
 const SignUpForm = styled.form`
 	display: flex;
 	flex-direction: column;
+	/* padding: 30px; */
 `;
 
 const Label = styled.label`
-	color: white;
+  color: white;
+  font-size: 15px;
+  padding: 5px;
 `;
 
 const Input = styled.input`
@@ -47,12 +52,13 @@ const SignUpButton = styled.button`
 `;
 
 const CloseButton = styled(SignUpButton)`
-  background-color: black;
-  padding: 10px;
+  background-color: #4d4d4d;
+  padding: 15px;
   position: absolute;
   top: 0;
-	left: 0;
-	border: black;
+  left: 0;
+  border: #4d4d4d;
+  border-radius: 50%;
 `;
 
 const SubmitButton = styled(SignUpButton)`
@@ -119,6 +125,7 @@ const SignUpModal = () => {
           select
           placeholder="Skills"
         />
+				<br></br>
         <SubmitButton type="submit">Submit</SubmitButton>
       </SignUpForm>
     </Modal>,
