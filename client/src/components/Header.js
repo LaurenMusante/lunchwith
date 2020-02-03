@@ -4,7 +4,7 @@ import React from 'react';
 import { Icon, Input, Menu } from 'semantic-ui-react';
 import './Header.css'
 import SignUpModal from './SignUpModal';
-import LoginButton from './LoginButton'
+import LoginModal from './LoginModal'
 
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
     <div>
       <Menu className="menuStyle">
         <Menu.Item header>
-          <Icon circular inverted color="teal" name="utensil spoon" />
+          <Icon circular inverted color="teal" name="food" />
           Lunch With
         </Menu.Item>
         <Menu.Item>
@@ -22,7 +22,7 @@ const Header = () => {
             placeholder="Search Professions..."
           />
         </Menu.Item>
-        <Menu.Item name="login"><LoginButton /></Menu.Item>
+        <Menu.Item name="login"><LoginModal /></Menu.Item>
         <Menu.Item name="login"><SignUpModal /></Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item name="signup">
