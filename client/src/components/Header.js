@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { Icon, Input, Menu } from 'semantic-ui-react';
-import './Header.css'
 import SignUpModal from './SignUpModal';
-import LoginModal from './LoginModal'
+import LoginModal from './LoginModal';
+import HamburgerDrawer from './HamburgerDrawer'
 
 
 const Header = () => {
@@ -26,7 +26,7 @@ const Header = () => {
         <Menu.Item name="login"><SignUpModal /></Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item name="signup">
-            <Icon circular name="bars" />
+            <HamburgerDrawer />
           </Menu.Item>
         </Menu.Menu>
       </Menu>
