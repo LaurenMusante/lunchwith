@@ -6,6 +6,7 @@ import { Form } from 'semantic-ui-react';
 const Modal = styled.div`
   background-color: #4d4d4d;
   border-radius: 20px;
+  color: white;
   width: 60%;
   height: 70%;
   z-index: 30;
@@ -38,7 +39,7 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-	height: 20px;
+	height: 30px;
 `;
 
 const SignUpButton = styled.button`

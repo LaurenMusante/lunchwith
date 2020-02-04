@@ -35,7 +35,7 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  height: 20px;
+  height: 30px;
 `;
 
 const LoginButton = styled.button`

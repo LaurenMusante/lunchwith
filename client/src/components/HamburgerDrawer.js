@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import { Button, Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 
 const Drawer = styled.div`
   position: fixed;
@@ -13,7 +13,7 @@ const Drawer = styled.div`
   background-color: #00b3b3;
   color: white;
   padding: 70px;
-  width: 30%;
+  width: 20%;
   z-index: 20;
 `
 const DrawerButton = styled.button`
