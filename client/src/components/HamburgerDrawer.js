@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import { Icon } from 'semantic-ui-react'
-import ProfileModal from './ProfileModal'
+import { Icon } from 'semantic-ui-react';
+import ProfileModal from './ProfileModal';
+import LoginModal from './LoginModal'
 
 const HamburgerDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,42 +16,15 @@ const HamburgerDrawer = () => {
     );
   }
   
-	return(
+	return (
     <DrawerWrapper>
-    <Drawer>
-      <NavButton>Log In</NavButton>
-      <br></br>
-      <ProfileModal />
-      <NavButton>View Schedule</NavButton>
-      <NavButton>Sign Out</NavButton>
-      <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
-    </Drawer>
-    </DrawerWrapper>
-  );
-}
-
-export default HamburgerDrawer;
-
-const HamburgerDrawer = () => {
-  const [isOpen, setIsOpen] = useState(false);
-	if (!isOpen) {
-		return (
-      <DrawerButton onClick={() => setIsOpen(true)}>
-        <Icon name="bars"></Icon>
-      </DrawerButton>
-    );
-  }
-  
-	return(
-    <DrawerWrapper>
-    <Drawer>
-      <NavButton>Log In</NavButton>
-      <br></br>
-      <NavButton>View Profile</NavButton>
-      <NavButton>View Schedule</NavButton>
-      <NavButton>Sign Out</NavButton>
-      <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
-    </Drawer>
+      <Drawer>
+        <LoginModal />
+        <ProfileModal />
+        <NavButton>View Schedule</NavButton>
+        <NavButton>Sign Out</NavButton>
+        <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+      </Drawer>
     </DrawerWrapper>
   );
 }
@@ -81,6 +55,9 @@ const DrawerButton = styled.button`
   cursor: pointer;
 `;
 
+// const ProfileButton = styled(DrawerButton)`
+// `;
+
 const NavButton = styled(DrawerButton)`
   /* align-content: center;
   justify-content: center; */
@@ -98,10 +75,7 @@ const NavButton = styled(DrawerButton)`
 const CloseButton = styled(NavButton)`
   margin-top: 20px;
 `;
-<<<<<<< HEAD
 
-=======
->>>>>>> drawer-buttons
 const DrawerWrapper = styled.div`
   position: absolute;
   height: 100vh;
