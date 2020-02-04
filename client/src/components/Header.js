@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Menu className="menuStyle">
-        <Menu.Item header>
+        <Menu.Item header style={menuStyle}>
           <Icon circular inverted color="teal" name="food" />
           Lunch With
         </Menu.Item>
@@ -23,8 +23,12 @@ const Header = () => {
             placeholder="Search Professions..."
           />
         </Menu.Item>
-        <Menu.Item name="login"><LoginModal /></Menu.Item>
-        <Menu.Item name="login"><SignUpModal /></Menu.Item>
+        <Menu.Item name="login">
+          <LoginModal />
+        </Menu.Item>
+        <Menu.Item name="login">
+          <SignUpModal />
+        </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item name="signup">
             <HamburgerDrawer />
@@ -44,3 +48,8 @@ const HeaderContainer = styled.div`
   top: 0px;
   left: 0px;
 `;
+
+const menuStyle = {
+  fontWeight: 'bold',
+  fontSize: '20px',
+}

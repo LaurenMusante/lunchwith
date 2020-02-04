@@ -3,6 +3,33 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { Icon } from 'semantic-ui-react'
+import ProfileModal from './ProfileModal'
+
+const HamburgerDrawer = () => {
+  const [isOpen, setIsOpen] = useState(false);
+	if (!isOpen) {
+		return (
+      <DrawerButton onClick={() => setIsOpen(true)}>
+        <Icon name="bars"></Icon>
+      </DrawerButton>
+    );
+  }
+  
+	return(
+    <DrawerWrapper>
+    <Drawer>
+      <NavButton>Log In</NavButton>
+      <br></br>
+      <ProfileModal />
+      <NavButton>View Schedule</NavButton>
+      <NavButton>Sign Out</NavButton>
+      <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+    </Drawer>
+    </DrawerWrapper>
+  );
+}
+
+export default HamburgerDrawer;
 
 const HamburgerDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +59,7 @@ export default HamburgerDrawer;
 
 const Drawer = styled.div`
   position: fixed;
-  top: 63px;
+  top: 79px;
   right: 0;
   height: 100vh;
   display: block;
@@ -43,9 +70,10 @@ const Drawer = styled.div`
   z-index: 20;
 `;
 const DrawerButton = styled.button`
-  background-color: #00b3b3;
-  color: white;
+  background-color: white;
+  color: #00b3b3;
   font-weight: bold;
+  font-size: 30px;
   border-radius: 4px;
   padding: 10px;
   border: #00b3b3;
@@ -62,12 +90,18 @@ const NavButton = styled(DrawerButton)`
   width: 140px;
   margin: 5px;
   cursor: pointer;
+  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
+  font-size: 18px;
 `;
 
 const CloseButton = styled(NavButton)`
   margin-top: 20px;
 `;
+<<<<<<< HEAD
 
+=======
+>>>>>>> drawer-buttons
 const DrawerWrapper = styled.div`
   position: absolute;
   height: 100vh;
