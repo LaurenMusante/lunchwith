@@ -7,7 +7,7 @@ const Modal = styled.div`
   background-color: #4d4d4d;
   border-radius: 20px;
   width: 60%;
-  height: 60%;
+  height: 70%;
   z-index: 20;
   position: absolute;
   display: flex;
@@ -98,7 +98,7 @@ const SignUpModal = () => {
 		return <SignUpButton onClick={() => setIsOpen(true)}>Sign Up</SignUpButton>
 	}
 
-		document.getElementById('root').style.filter = 'blur(5px)';
+		document.getElementById('root').style.filter = 'blur(3px)';
 
 	return ReactDOM.createPortal(
     <Modal>

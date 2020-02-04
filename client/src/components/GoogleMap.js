@@ -1,11 +1,13 @@
 //google-maps-react
 import React from 'react';
 import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
+//wrap map in styled component. 
 
 const mapStyle = {
   position: 'absolute',
-  // width: '100%',
-  // height: '100%',
+  width: '100%',
+  height: '100%',
+  zIndex: '10'
 };
 
 export class GoogleMap extends React.Component {

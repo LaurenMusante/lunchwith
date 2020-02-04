@@ -19,7 +19,7 @@ const Drawer = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  /* height: 100%; */
+  height: 100%;
   display: block;
   background-color: #00b3b3;
   color: white;
