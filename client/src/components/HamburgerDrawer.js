@@ -4,6 +4,18 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { Button, Icon } from 'semantic-ui-react'
 
+const Drawer = styled.div`
+  position: fixed;
+  top: 63px;
+  right: 0;
+  height: 100vh;
+  display: block;
+  background-color: #00b3b3;
+  color: white;
+  padding: 70px;
+  width: 30%;
+  z-index: 20;
+`
 const DrawerButton = styled.button`
   background-color: #00b3b3;
   color: white;
@@ -15,20 +27,6 @@ const DrawerButton = styled.button`
   cursor: pointer;
 `; 
 
-const Drawer = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  display: block;
-  background-color: #00b3b3;
-  color: white;
-  padding: 70px;
-  width: 30%;
-  z-index: 20;
-  cursor: pointer;
-`
-
 const NavButton = styled(DrawerButton)`
   /* align-content: center;
   justify-content: center; */
@@ -39,6 +37,19 @@ const NavButton = styled(DrawerButton)`
   margin: 5px;
   cursor: pointer;
 `;
+
+const CloseButton = styled(NavButton)`
+margin-top: 20px;
+
+`
+
+const DrawerWrapper = styled.div`
+position: absolute;
+height: 100vh;
+width: 100vw;
+display: flex;
+flex-direction: column;
+`
 
   
   /* background-color: #00b3b3;
@@ -52,10 +63,6 @@ const NavButton = styled(DrawerButton)`
   justify-content: center;
   align-items: center; */
 
-
-
-
-
 const HamburgerDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
 	if (!isOpen) {
@@ -67,13 +74,16 @@ const HamburgerDrawer = () => {
   }
   
 	return(
+    <DrawerWrapper>
     <Drawer>
       <NavButton>Log In</NavButton>
       <br></br>
       <NavButton>View Profile</NavButton>
       <NavButton>View Schedule</NavButton>
       <NavButton>Sign Out</NavButton>
+      <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
     </Drawer>
+    </DrawerWrapper>
   );
 }
 
