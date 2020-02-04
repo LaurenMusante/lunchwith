@@ -67,7 +67,7 @@ const LoginModal = () => {
     return <LoginButton onClick={() => setIsOpen(true)}>Log In</LoginButton>;
   }
 
-  document.getElementById('root').style.filter = 'blur(5px)';
+  document.getElementById('root').style.filter = 'blur(3px)';
 
   return ReactDOM.createPortal(
     <Modal>
