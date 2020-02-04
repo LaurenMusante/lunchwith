@@ -3,77 +3,6 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components'
 import { Form } from 'semantic-ui-react';
 
-const Modal = styled.div`
-  background-color: #4d4d4d;
-  border-radius: 20px;
-  color: white;
-  width: 60%;
-  height: 70%;
-  z-index: 30;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 20%;
-  margin-top: 12%;
-  position: absolute;
-`;
-
-const Header = styled.h1`
-  text-align: center;
-  position: absolute;
-	top: 0;
-	color: white;
-	padding: 2px;
-`;
-
-const SignUpForm = styled.form`
-	display: flex;
-	flex-direction: column;
-	/* padding: 30px; */
-`;
-
-const Label = styled.label`
-  color: white;
-  font-size: 15px;
-  padding: 5px;
-`;
-
-const Input = styled.input`
-	height: 30px;
-`;
-
-const SignUpButton = styled.button`
-  background-color: #00b3b3;
-  color: white;
-  font-weight: bold;
-  border-radius: 4px;
-  padding: 10px;
-  border: #00b3b3;
-  
-`;
-
-const CloseButton = styled(SignUpButton)`
-  background-color: #4d4d4d;
-  padding: 15px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: #4d4d4d;
-  border-radius: 20px;
-`;
-
-const SubmitButton = styled(SignUpButton)`
-`;
-
-const SignUpModalWrapper = styled.div`
-position: relative;
-height: 100vh;
-width: 100vw;
-display: flex;
-flex-direction: column;
-`
-
-
 const mentorOptions = [
   { key: 'mr', text: 'Mentor', value: 'mentor' },
   { key: 'me', text: 'Mentee', value: 'mentee' }
@@ -145,3 +74,72 @@ const SignUpModal = () => {
 }
 
 export default SignUpModal;
+
+
+const Modal = styled.div`
+  background-color: #4d4d4d;
+  border-radius: 20px;
+  color: white;
+  width: 60%;
+  height: 70%;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20%;
+  margin-top: 12%;
+  position: absolute;
+`;
+
+const Header = styled.h1`
+  text-align: center;
+  position: absolute;
+  top: 0;
+  color: white;
+  padding: 2px;
+`;
+
+const SignUpForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  /* padding: 30px; */
+`;
+
+const Label = styled.label`
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+`;
+
+const Input = styled.input`
+  height: 30px;
+`;
+
+const SignUpButton = styled.button`
+  background-color: #00b3b3;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 10px;
+  border: #00b3b3;
+`;
+
+const CloseButton = styled(SignUpButton)`
+  background-color: #4d4d4d;
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: #4d4d4d;
+  border-radius: 20px;
+`;
+
+const SubmitButton = styled(SignUpButton)``;
+
+const SignUpModalWrapper = styled.div`
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+`;

@@ -8,14 +8,6 @@ import LoginModal from './LoginModal';
 import HamburgerDrawer from './HamburgerDrawer';
 import styled from 'styled-components'
 
-const HeaderContainer = styled.div`
-z-index: 20;
-width: 100vw;
-position: absolute;
-top: 0px;
-left: 0px;
-`;
-
 const Header = () => {
   return (
     <HeaderContainer>
@@ -44,3 +36,11 @@ const Header = () => {
 };
 
 export default Header;
+
+const HeaderContainer = styled.div`
+  z-index: 20;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+`;

@@ -2,6 +2,39 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
 
+const LoginModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  if (!isOpen) {
+    document.getElementById('root').style.filter = 'blur(0px)';
+    return <LoginButton onClick={() => setIsOpen(true)}>Log In</LoginButton>;
+  }
+
+  document.getElementById('root').style.filter = 'blur(3px)';
+  
+  return ReactDOM.createPortal(
+    <ModalWrapper>
+    <Modal>
+      <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+      <Header>Log In</Header>
+      <LogInForm>
+        <Label for="name">Name:</Label>
+        <Input type="text" name="name" />
+        <Label for="email">Email:</Label>
+        <Input type="text" name="email" />
+        <Label for="pass">Password:</Label>
+        <Input type="text" name="pass" />
+        <br></br>
+        <SubmitButton type="submit">Submit</SubmitButton>
+      </LogInForm>
+    </Modal>
+    </ModalWrapper>,
+    document.getElementById('modal-root')
+  );
+};
+
+export default LoginModal;
+
+
 const Modal = styled.div`
   background-color: #4d4d4d;
   border-radius: 20px;
@@ -58,46 +91,12 @@ const CloseButton = styled(LoginButton)`
 `;
 
 const ModalWrapper = styled.div`
-position: relative;
-height: 100vh;
-width: 100vw;
-display: flex;
-flex-direction: column;
-`
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+`;
 
 const SubmitButton = styled(LoginButton)``;
 
-
-const LoginModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  if (!isOpen) {
-    document.getElementById('root').style.filter = 'blur(0px)';
-    return <LoginButton onClick={() => setIsOpen(true)}>Log In</LoginButton>;
-  }
-
-  document.getElementById('root').style.filter = 'blur(3px)';
-  
-  return ReactDOM.createPortal(
-    <ModalWrapper>
-    <Modal>
-      <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
-      <Header>Log In</Header>
-      <LogInForm>
-        <Label for="name">Name:</Label>
-        <Input type="text" name="name" />
-        <Label for="email">Email:</Label>
-        <Input type="text" name="email" />
-        <Label for="pass">Password:</Label>
-        <Input type="text" name="pass" />
-        <br></br>
-        <SubmitButton type="submit">Submit</SubmitButton>
-      </LogInForm>
-    </Modal>
-    </ModalWrapper>,
-    document.getElementById('modal-root')
-  );
-};
-
-export default LoginModal;
-
-  
