@@ -10,7 +10,6 @@ import styled from 'styled-components'
 
 const HeaderContainer = styled.div`
 z-index: 20;
-/* height: 75px; */
 width: 100vw;
 position: absolute;
 top: 0px;

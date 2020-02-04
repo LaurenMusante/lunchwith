@@ -8,13 +8,13 @@ const Modal = styled.div`
   border-radius: 20px;
   width: 60%;
   height: 70%;
-  z-index: 20;
-  position: absolute;
+  z-index: 30;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 20%;
   margin-top: 12%;
+  position: absolute;
 `;
 
 const Header = styled.h1`
@@ -39,7 +39,6 @@ const Label = styled.label`
 
 const Input = styled.input`
 	height: 20px;
-
 `;
 
 const SignUpButton = styled.button`
@@ -49,6 +48,7 @@ const SignUpButton = styled.button`
   border-radius: 4px;
   padding: 10px;
   border: #00b3b3;
+  
 `;
 
 const CloseButton = styled(SignUpButton)`
@@ -58,11 +58,19 @@ const CloseButton = styled(SignUpButton)`
   top: 0;
   left: 0;
   border: #4d4d4d;
-  border-radius: 50%;
+  border-radius: 20px;
 `;
 
 const SubmitButton = styled(SignUpButton)`
 `;
+
+const SignUpModalWrapper = styled.div`
+position: relative;
+height: 100vh;
+width: 100vw;
+display: flex;
+flex-direction: column;
+`
 
 
 const mentorOptions = [
@@ -101,6 +109,7 @@ const SignUpModal = () => {
 		document.getElementById('root').style.filter = 'blur(3px)';
 
 	return ReactDOM.createPortal(
+    <SignUpModalWrapper>
     <Modal>
       <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
       <Header>Become a Member</Header>
@@ -128,7 +137,8 @@ const SignUpModal = () => {
 				<br></br>
         <SubmitButton type="submit">Submit</SubmitButton>
       </SignUpForm>
-    </Modal>,
+    </Modal>
+    </SignUpModalWrapper>,
     document.getElementById('modal-root')
   );
 }

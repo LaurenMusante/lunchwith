@@ -17,7 +17,7 @@ function App() {
 export default App;
 
 const AppWrapper = styled.div`
-position: relative;
+position: absolute;
 height: 100vh;
 width: 100vw;
 display: flex;

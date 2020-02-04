@@ -7,13 +7,13 @@ const Modal = styled.div`
   border-radius: 20px;
   width: 60%;
   height: 60%;
-  z-index: 20;
-  position: absolute;
+  z-index: 30;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 20%;
   margin-top: 12%;
+  position: absolute;
 `;
 
 const Header = styled.h1`
@@ -23,7 +23,7 @@ const Header = styled.h1`
   color: white;
 `;
 
-const SignUpForm = styled.form`
+const LogInForm = styled.form`
   display: flex;
   flex-direction: column;
 `;
@@ -54,8 +54,16 @@ const CloseButton = styled(LoginButton)`
   top: 0;
   left: 0;
   border: #4d4d4d;
-  border-radius: 50%;
+  border-radius: 20px;
 `;
+
+const ModalWrapper = styled.div`
+position: relative;
+height: 100vh;
+width: 100vw;
+display: flex;
+flex-direction: column;
+`
 
 const SubmitButton = styled(LoginButton)``;
 
@@ -68,12 +76,13 @@ const LoginModal = () => {
   }
 
   document.getElementById('root').style.filter = 'blur(3px)';
-
+  
   return ReactDOM.createPortal(
+    <ModalWrapper>
     <Modal>
       <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
       <Header>Log In</Header>
-      <SignUpForm>
+      <LogInForm>
         <Label for="name">Name:</Label>
         <Input type="text" name="name" />
         <Label for="email">Email:</Label>
@@ -82,8 +91,9 @@ const LoginModal = () => {
         <Input type="text" name="pass" />
         <br></br>
         <SubmitButton type="submit">Submit</SubmitButton>
-      </SignUpForm>
-    </Modal>,
+      </LogInForm>
+    </Modal>
+    </ModalWrapper>,
     document.getElementById('modal-root')
   );
 };
