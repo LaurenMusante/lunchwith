@@ -16,14 +16,19 @@ const Modal = styled.div`
   margin-left: 20%;
   margin-top: 12%;
   position: absolute;
+  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
 `;
 
 const Header = styled.h1`
   text-align: center;
   position: absolute;
-	top: 0;
-	color: white;
-	padding: 2px;
+  top: 0;
+  color: white;
+  padding: 2px;
+  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
+  font-size: 30px;
 `;
 
 const SignUpForm = styled.form`
@@ -45,11 +50,12 @@ const Input = styled.input`
 const SignUpButton = styled.button`
   background-color: #00b3b3;
   color: white;
-  font-weight: bold;
   border-radius: 4px;
   padding: 10px;
   border: #00b3b3;
-  
+  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
+  font-size: 18px;
 `;
 
 const CloseButton = styled(SignUpButton)`
@@ -71,6 +77,7 @@ height: 100vh;
 width: 100vw;
 display: flex;
 flex-direction: column;
+
 `
 
 
