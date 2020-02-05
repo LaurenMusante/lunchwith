@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { Container } from 'semantic-ui-react';
 import Sloth from './sloth.jpg'
+import DrawerButton from './HamburgerDrawer'
 
 const ProfileModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -75,18 +76,19 @@ const Image = styled.img`
   width: 40%;
 `;
 
-
 const ProfileButton = styled.button`
   padding: 20px;
-  background-color: #ff8000;
+  background-color: #00b3b3;
+  border-style: solid;
+  border-color: orange;
+  border-width: 2px;
   color: white;
   width: 140px;
   margin: 5px;
-  border-radius: 4px;
+  cursor: pointer;
   font-weight: bold;
   font-family: 'Cabin', sans-serif;
   font-size: 18px;
-  cursor: pointer;
 `;
 
 

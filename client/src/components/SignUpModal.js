@@ -118,10 +118,12 @@ const Input = styled.input`
 const SignUpButton = styled.button`
   background-color: #00b3b3;
   color: white;
-  font-weight: bold;
   border-radius: 4px;
   padding: 10px;
   border: #00b3b3;
+  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
+  font-size: 18px;
 `;
 
 const CloseButton = styled(SignUpButton)`

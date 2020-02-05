@@ -19,8 +19,12 @@ const HamburgerDrawer = () => {
 	return (
     <DrawerWrapper>
       <Drawer>
-        <LoginModal />
-        <ProfileModal />
+        <NavButton>
+          <LoginModal />
+        </NavButton>
+        <NavButton>
+          <ProfileModal />
+        </NavButton>
         <NavButton>View Schedule</NavButton>
         <NavButton>Sign Out</NavButton>
         <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
@@ -48,21 +52,21 @@ const DrawerButton = styled.button`
   color: #00b3b3;
   font-weight: bold;
   font-size: 30px;
-  border-radius: 4px;
   padding: 10px;
   border: #00b3b3;
   z-index: 20;
   cursor: pointer;
 `;
 
-// const ProfileButton = styled(DrawerButton)`
-// `;
-
-const NavButton = styled(DrawerButton)`
+const NavButton = styled.button`
   /* align-content: center;
   justify-content: center; */
   padding: 20px;
-  background-color: #ff8000;
+  background-color: #00b3b3;
+  border-style: solid;
+  border-color: orange;
+  border-width: 2px;
+  border-radius: 3px;
   color: white;
   width: 140px;
   margin: 5px;
