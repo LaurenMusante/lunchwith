@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { Container } from 'semantic-ui-react';
+import Sloth from './sloth.jpg'
 
 const ProfileModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,8 @@ const ProfileModal = () => {
       <ProfileModalDiv>
         <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
         <Container>
-          {/* <Image className="image" src={Sloth} size="small" circular /> */}
+            <Image src={Sloth}/>
+
           <Header> USER NAME </Header>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -64,6 +66,16 @@ const Header = styled.h1`
   padding: 2px;
 `;
 
+const Image = styled.img`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+	margin-top: 15vh;
+	border-radius: 50%;
+  width: 40%;
+`;
+
+
 const ProfileButton = styled.button`
   padding: 20px;
   background-color: #ff8000;
@@ -76,6 +88,7 @@ const ProfileButton = styled.button`
   font-size: 18px;
   cursor: pointer;
 `;
+
 
 const CloseButton = styled(ProfileButton)`
   background-color: #4d4d4d;
