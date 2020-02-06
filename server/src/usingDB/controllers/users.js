@@ -10,7 +10,7 @@ const User = {
    * @returns {object} reflection object 
    */
   async create(req, res) {
-    if (!req.body.email || !req.body.password || !req.body.name) {
+    if (!req.body.email || !req.body.password || !req.body.firstname || !req.body.lastname) {
       return res.status(400).send({ 'message': 'Some values are missing' });
     }
     if (!Helper.isValidEmail(req.body.email)) {
@@ -41,6 +41,7 @@ const User = {
       return res.status(400).send(error);
     }
   },
+
   /**
    * Login
    * @param {object} req 
@@ -69,6 +70,23 @@ const User = {
       return res.status(400).send(error)
     }
   },
+
+/**
+ * Get All Users
+ * @param {object} req 
+ * @param {object} res 
+ * @returns {object} lunches array
+ */
+  async getAll(req, res) {
+    const findAllQuery = 'SELECT * FROM users';
+    try {
+      const { rows } = await db.query(findAllQuery);
+      return res.status(200).send({ rows });
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  },
+
   /**
    * Delete A User
    * @param {object} req 
