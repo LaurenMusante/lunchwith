@@ -77,7 +77,7 @@ export default SignUpModal;
 
 
 const Modal = styled.div`
-  background-color: #4d4d4d;
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   color: white;
   width: 60%;
@@ -127,7 +127,7 @@ const SignUpButton = styled.button`
 `;
 
 const CloseButton = styled(SignUpButton)`
-  background-color: #4d4d4d;
+  background: rgba(0, 0, 0, 0);
   padding: 15px;
   position: absolute;
   top: 0;

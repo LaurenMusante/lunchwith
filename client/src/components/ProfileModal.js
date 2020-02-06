@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import { Container } from 'semantic-ui-react';
 import Sloth from './sloth.jpg'
-import DrawerButton from './HamburgerDrawer'
 
 const ProfileModal = ({...other}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +16,7 @@ const ProfileModal = ({...other}) => {
     <ProfileModalWrapper>
       <ProfileModalDiv>
         <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
-        <Container>
+        <ProfileContainer>
             <Image src={Sloth}/>
 
           <Header> USER NAME </Header>
@@ -35,7 +33,7 @@ const ProfileModal = ({...other}) => {
           <h3>Skill 1</h3>
           <h3>Skill 2</h3>
           <h3>Skill 3</h3>
-        </Container>
+        </ProfileContainer>
       </ProfileModalDiv>
     </ProfileModalWrapper>,
     document.getElementById('modal-root')
@@ -45,7 +43,7 @@ const ProfileModal = ({...other}) => {
 export default ProfileModal;
 
 const ProfileModalDiv = styled.div`
-  background-color: #4d4d4d;
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   color: white;
   width: 60%;
@@ -58,6 +56,11 @@ const ProfileModalDiv = styled.div`
   margin-top: 12%;
   position: absolute;
   padding: 30px;
+  overflow: scroll;
+`;
+
+const ProfileContainer = styled.div`
+
 `;
 
 const Header = styled.h1`
@@ -73,7 +76,7 @@ const Image = styled.img`
   margin-right: auto;
 	margin-top: 15vh;
 	border-radius: 50%;
-  width: 40%;
+  width: 30%;
 `;
 
 const ProfileButton = styled.button`
@@ -93,7 +96,7 @@ const ProfileButton = styled.button`
 
 
 const CloseButton = styled(ProfileButton)`
-  background-color: #4d4d4d;
+  background: rgba(0, 0, 0, 0);
   font-weight: bold;
   font-family: 'Cabin', sans-serif;
   font-size: 25px;

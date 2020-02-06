@@ -17,7 +17,9 @@ const Drawer = styled.div`
   padding: 70px;
   width: 20%;
   z-index: 20;
+  background: rgba(0, 0, 0, 0.6);
 `;
+
 const DrawerButton = styled.button`
   background-color: white;
   color: #00b3b3;
@@ -35,16 +37,16 @@ const ButtonCSS = css`
   padding: 20px;
   background-color: #00b3b3;
   border-style: solid;
-  border-color: red;
+  border-color: #00b3b3;
   border-width: 2px;
   border-radius: 3px;
   color: white;
-  width: 140px;
-  margin: 5px;
+  width: 150px;
+  margin: 7px;
   cursor: pointer;
   font-weight: bold;
   font-family: 'Cabin', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const NavButton = styled.button`
