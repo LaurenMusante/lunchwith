@@ -19,8 +19,8 @@ app.get('/', function (req, res) {
   return res.status(200).send({ 'message': 'YAY! Congratulations! Your first endpoint is working' });
 });
 
-app.listen(3000);
-console.log('app running on port ', 3000);
+app.listen(5000);
+console.log('app running on port ', 5000);
 
 app.post('/api/v1/users', _users2.default.create);
 app.get('/api/v1/users', _users2.default.getAll);
