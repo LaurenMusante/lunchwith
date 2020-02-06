@@ -5,11 +5,11 @@ import { Container } from 'semantic-ui-react';
 import Sloth from './sloth.jpg'
 import DrawerButton from './HamburgerDrawer'
 
-const ProfileModal = () => {
+const ProfileModal = ({...other}) => {
   const [isOpen, setIsOpen] = useState(false);
   if (!isOpen) {
     document.getElementById('root').style.filter = 'blur(0px)';
-    return <ProfileButton onClick={() => setIsOpen(true)}>View Profile</ProfileButton>;
+    return <ProfileButton onClick={() => setIsOpen(true)} {...other}>View Profile</ProfileButton>;
   }
 
   document.getElementById('root').style.filter = 'blur(3px)';

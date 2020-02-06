@@ -1,39 +1,10 @@
 
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import { Icon } from 'semantic-ui-react';
 import ProfileModal from './ProfileModal';
 import LoginModal from './LoginModal'
-
-const HamburgerDrawer = () => {
-  const [isOpen, setIsOpen] = useState(false);
-	if (!isOpen) {
-		return (
-      <DrawerButton onClick={() => setIsOpen(true)}>
-        <Icon name="bars"></Icon>
-      </DrawerButton>
-    );
-  }
-  
-	return (
-    <DrawerWrapper>
-      <Drawer>
-        <NavButton>
-          <LoginModal />
-        </NavButton>
-        <NavButton>
-          <ProfileModal />
-        </NavButton>
-        <NavButton>View Schedule</NavButton>
-        <NavButton>Sign Out</NavButton>
-        <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
-      </Drawer>
-    </DrawerWrapper>
-  );
-}
-
-export default HamburgerDrawer;
 
 const Drawer = styled.div`
   position: fixed;
@@ -58,13 +29,13 @@ const DrawerButton = styled.button`
   cursor: pointer;
 `;
 
-const NavButton = styled.button`
+const ButtonCSS = css`
   /* align-content: center;
   justify-content: center; */
   padding: 20px;
   background-color: #00b3b3;
   border-style: solid;
-  border-color: orange;
+  border-color: red;
   border-width: 2px;
   border-radius: 3px;
   color: white;
@@ -74,6 +45,18 @@ const NavButton = styled.button`
   font-weight: bold;
   font-family: 'Cabin', sans-serif;
   font-size: 18px;
+`;
+
+const NavButton = styled.button`
+  ${ButtonCSS}
+`;
+
+const LoginNavButton = styled(LoginModal)`
+  ${ButtonCSS}
+`;
+
+const ProfileModalNavButton = styled(ProfileModal)`
+  ${ButtonCSS}
 `;
 
 const CloseButton = styled(NavButton)`
@@ -87,3 +70,34 @@ const DrawerWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+const HamburgerDrawer = () => {
+  const [isOpen, setIsOpen] = useState(false);
+	if (!isOpen) {
+		return (
+      <DrawerButton onClick={() => setIsOpen(true)}>
+        <Icon name="bars"></Icon>
+      </DrawerButton>
+    );
+  }
+  
+	return (
+    <DrawerWrapper>
+      <Drawer>
+        <LoginNavButton />
+        <ProfileModalNavButton />
+        {/* <NavButton>
+          <LoginModal />
+        </NavButton>
+        <NavButton>
+          <ProfileModal />
+        </NavButton> */}
+        <NavButton>View Schedule</NavButton>
+        <NavButton>Sign Out</NavButton>
+        <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+      </Drawer>
+    </DrawerWrapper>
+  );
+}
+
+export default HamburgerDrawer;

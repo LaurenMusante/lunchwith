@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
 
-const LoginModal = () => {
+const LoginModal = ({...other}) => {
   const [isOpen, setIsOpen] = useState(false);
   if (!isOpen) {
     document.getElementById('root').style.filter = 'blur(0px)';
-    return <LoginButton onClick={() => setIsOpen(true)}>Log In</LoginButton>;
+    return <LoginButton onClick={() => setIsOpen(true)} {...other}>Log In</LoginButton>;
   }
 
   document.getElementById('root').style.filter = 'blur(3px)';
