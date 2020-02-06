@@ -20,5 +20,5 @@ app.get('/', (req, res) => {
 app.post('/api/v1/users', UserWithDB.create);
 app.post('/api/v1/users/login', UserWithDB.login);
 
-app.listen(3000)
-console.log('app running on port ', 3000);
+app.listen(5000)
+console.log('app running on port ', 5000);
