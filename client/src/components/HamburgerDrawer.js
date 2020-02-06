@@ -1,60 +1,75 @@
 
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
-import { Button, Icon } from 'semantic-ui-react'
-
-const DrawerButton = styled.button`
-  background-color: #00b3b3;
-  color: white;
-  font-weight: bold;
-  border-radius: 4px;
-  padding: 10px;
-  border: #00b3b3;
-  z-index: 20;
-  cursor: pointer;
-`; 
+import styled, {css} from 'styled-components';
+import { Icon } from 'semantic-ui-react';
+import ProfileModal from './ProfileModal';
+import LoginModal from './LoginModal'
 
 const Drawer = styled.div`
   position: fixed;
-  top: 0;
+  top: 79px;
   right: 0;
-  height: 100%;
+  height: 100vh;
   display: block;
   background-color: #00b3b3;
   color: white;
   padding: 70px;
-  width: 30%;
+  width: 20%;
+  z-index: 20;
+`;
+const DrawerButton = styled.button`
+  background-color: white;
+  color: #00b3b3;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px;
+  border: #00b3b3;
   z-index: 20;
   cursor: pointer;
-`
+`;
 
-const NavButton = styled(DrawerButton)`
+const ButtonCSS = css`
   /* align-content: center;
   justify-content: center; */
   padding: 20px;
-  background-color: #ff8000;
+  background-color: #00b3b3;
+  border-style: solid;
+  border-color: red;
+  border-width: 2px;
+  border-radius: 3px;
   color: white;
   width: 140px;
   margin: 5px;
   cursor: pointer;
+  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
+  font-size: 18px;
 `;
 
-  
-  /* background-color: #00b3b3;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 30%;
-  height: 100%;
-  z-index: 20;
+const NavButton = styled.button`
+  ${ButtonCSS}
+`;
+
+const LoginNavButton = styled(LoginModal)`
+  ${ButtonCSS}
+`;
+
+const ProfileModalNavButton = styled(ProfileModal)`
+  ${ButtonCSS}
+`;
+
+const CloseButton = styled(NavButton)`
+  margin-top: 20px;
+`;
+
+const DrawerWrapper = styled.div`
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: center;
-  align-items: center; */
-
-
-
-
+  flex-direction: column;
+`;
 
 const HamburgerDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,14 +81,22 @@ const HamburgerDrawer = () => {
     );
   }
   
-	return(
-    <Drawer>
-      <NavButton>Log In</NavButton>
-      <br></br>
-      <NavButton>View Profile</NavButton>
-      <NavButton>View Schedule</NavButton>
-      <NavButton>Sign Out</NavButton>
-    </Drawer>
+	return (
+    <DrawerWrapper>
+      <Drawer>
+        <LoginNavButton />
+        <ProfileModalNavButton />
+        {/* <NavButton>
+          <LoginModal />
+        </NavButton>
+        <NavButton>
+          <ProfileModal />
+        </NavButton> */}
+        <NavButton>View Schedule</NavButton>
+        <NavButton>Sign Out</NavButton>
+        <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+      </Drawer>
+    </DrawerWrapper>
   );
 }
 
