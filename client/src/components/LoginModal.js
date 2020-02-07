@@ -36,7 +36,7 @@ export default LoginModal;
 
 
 const Modal = styled.div`
-  background-color: #4d4d4d;
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   width: 60%;
   height: 60%;
@@ -84,7 +84,7 @@ const LoginButton = styled.button`
 `;
 
 const CloseButton = styled(LoginButton)`
-  background-color: #4d4d4d;
+  background: rgba(0, 0, 0, 0);
   padding: 15px;
   position: absolute;
   top: 0;
