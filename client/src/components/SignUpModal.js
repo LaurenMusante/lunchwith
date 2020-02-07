@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
 import { Form } from 'semantic-ui-react';
+import axios from 'axios'
 
 const mentorOptions = [
   { key: 'mr', text: 'Mentor', value: 'mentor' },
@@ -28,53 +29,6 @@ const skillOptions = [
   { key: 'ui', text: 'UI Design', value: 'ui' },
   { key: 'ux', text: 'User Experience', value: 'ux' }
 ];
-
-const SignUpModal = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	if (!isOpen) {
-		document.getElementById('root').style.filter = 'blur(0px)';
-		return <SignUpButton onClick={() => setIsOpen(true)}>Sign Up</SignUpButton>
-	}
-
-		document.getElementById('root').style.filter = 'blur(3px)';
-
-	return ReactDOM.createPortal(
-    <SignUpModalWrapper>
-    <Modal>
-      <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
-      <Header>Become a Member</Header>
-      <SignUpForm>
-        <Label for="name">Name:</Label>
-        <Input type="text" name="name" />
-        <Label for="email">Email:</Label>
-        <Input type="text" name="email" />
-        <Label for="pass">Password:</Label>
-        <Input type="text" name="pass" />
-        <Form.Select
-          fluid
-          label="I'd like to be a..."
-          options={mentorOptions}
-					placeholder="Mentor"
-        />
-        <Form.Select
-          fluid
-          label="Select Your Top 3 Skills"
-          options={skillOptions}
-          multiple
-          select
-          placeholder="Skills"
-        />
-				<br></br>
-        <SubmitButton type="submit">Submit</SubmitButton>
-      </SignUpForm>
-    </Modal>
-    </SignUpModalWrapper>,
-    document.getElementById('modal-root')
-  );
-}
-
-export default SignUpModal;
-
 
 const Modal = styled.div`
   background: rgba(0, 0, 0, 0.6);
@@ -145,3 +99,82 @@ const SignUpModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+function handleSubmit(event) {
+  event.preventDefault();
+  createUser();
+};
+
+const createUser = async () => {
+  try {
+    return await axios.post('http://localhost:5000/api/v1/users/', { user: {
+      firstName: 'firstName', 
+      lastName: 'lastName', 
+      email: 'email',
+      password: 'password',
+      mentor: 'true',
+      skills: []
+      }
+    })
+  } catch (error) {
+    console.error(error)
+  }
+  }
+
+
+
+const SignUpModal = () => {
+  // const [firstName, setFirstName] = useState('');
+  // const [lastName, setLastName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+
+
+	const [isOpen, setIsOpen] = useState(false);
+	if (!isOpen) {
+		document.getElementById('root').style.filter = 'blur(0px)';
+		return <SignUpButton onClick={() => setIsOpen(true)}>Sign Up</SignUpButton>
+	}
+
+		document.getElementById('root').style.filter = 'blur(3px)';
+
+	return ReactDOM.createPortal(
+    <SignUpModalWrapper>
+    <Modal>
+      <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+      <Header>Become a Member</Header>
+      <SignUpForm>
+        <Label for="firstName">First Name:</Label>
+        <Input type="text" name="firstName" />
+        <Label for="lastName">Last Name:</Label>
+        <Input type="text" name="lastName" />
+        <Label for="email">Email:</Label>
+        <Input type="text" name="email" />
+        <Label for="pass">Password:</Label>
+        <Input type="text" name="pass" />
+        <Form.Select
+          fluid
+          label="I'd like to be a..."
+          options={mentorOptions}
+					placeholder="Mentor"
+        />
+        <Form.Select
+          fluid
+          label="Select Your Top 3 Skills"
+          options={skillOptions}
+          multiple
+          select
+          placeholder="Skills"
+        />
+				<br></br>
+        <SubmitButton type="submit" onSubmit={handleSubmit}>Submit</SubmitButton>
+      </SignUpForm>
+    </Modal>
+    </SignUpModalWrapper>,
+    document.getElementById('modal-root')
+  );
+}
+
+export default SignUpModal;
+
+
