@@ -34,8 +34,8 @@ const Modal = styled.div`
   background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   color: white;
-  width: 60%;
-  height: 70%;
+  width: 70vw;
+  height: 90vh;
   z-index: 30;
   display: flex;
   justify-content: center;
@@ -119,7 +119,7 @@ const createUser = async () => {
   } catch (error) {
     console.error(error)
   }
-  }
+}
 
 
 
@@ -151,7 +151,7 @@ const SignUpModal = () => {
         <Label for="email">Email:</Label>
         <Input type="text" name="email" />
         <Label for="pass">Password:</Label>
-        <Input type="text" name="pass" />
+        <Input type="password" name="pass" />
         <Form.Select
           fluid
           label="I'd like to be a..."

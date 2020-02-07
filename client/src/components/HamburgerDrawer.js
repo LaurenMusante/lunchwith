@@ -73,6 +73,10 @@ const DrawerWrapper = styled.div`
   flex-direction: column;
 `;
 
+function handleSignOut() {
+
+};
+
 const HamburgerDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
 	if (!isOpen) {
@@ -95,7 +99,7 @@ const HamburgerDrawer = () => {
           <ProfileModal />
         </NavButton> */}
         <NavButton>View Schedule</NavButton>
-        <NavButton>Sign Out</NavButton>
+        <NavButton onClick={handleSignOut}>Sign Out</NavButton>
         <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
       </Drawer>
     </DrawerWrapper>

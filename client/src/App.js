@@ -2,15 +2,17 @@ import React from 'react';
 import GoogleMap from './components/GoogleMap';
 import data from './data/UserData.json';
 import Header from './components/Header';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Invite from './components/Invite'
 require('dotenv').config();
 
-console.log(process.env.REACT_APP_GOOGLE_API_KEY);
+// console.log(process.env.REACT_APP_GOOGLE_API_KEY);
 function App() {
   return (
     <AppWrapper>
       <Header />
       <GoogleMap />
+      <Invite />
       <p>{data.map(user => user.firstName)}</p>
     </AppWrapper>
   );

@@ -15,14 +15,14 @@ const LoginModal = ({...other}) => {
     <ModalWrapper>
     <Modal>
       <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
-      <Header>Log In</Header>
+      <LoginHeader>Log In</LoginHeader>
       <LogInForm>
         <Label for="name">Name:</Label>
         <Input type="text" name="name" />
         <Label for="email">Email:</Label>
         <Input type="text" name="email" />
         <Label for="pass">Password:</Label>
-        <Input type="text" name="pass" />
+        <Input type="password" name="pass" />
         <br></br>
         <SubmitButton type="submit">Submit</SubmitButton>
       </LogInForm>
@@ -38,8 +38,8 @@ export default LoginModal;
 const Modal = styled.div`
   background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
-  width: 60%;
-  height: 60%;
+  width: 60vw;
+  height: 70vh;
   z-index: 30;
   display: flex;
   justify-content: center;
@@ -49,7 +49,7 @@ const Modal = styled.div`
   position: absolute;
 `;
 
-const Header = styled.h1`
+const LoginHeader = styled.h1`
   text-align: center;
   position: absolute;
   top: 1%;
