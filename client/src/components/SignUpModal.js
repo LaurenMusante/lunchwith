@@ -111,9 +111,9 @@ const handleSubmit = async event => {
   try {
     const response = await axios.post('http://localhost:5000/api/v1/users/', {
       firstName,
-      lastName: 'lastName',
-      email: 'email@email.com',
-      password: 'password'
+      lastName,
+      email,
+      password
       // mentor: 'true',
       // skills: []
     });
@@ -137,13 +137,33 @@ const handleSubmit = async event => {
         <Header>Become a Member</Header>
         <SignUpForm onSubmit={handleSubmit}>
           <Label for="firstName">First Name:</Label>
-          <Input type="text" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
+          <Input
+            type="text"
+            name="firstName"
+            value={firstName}
+            onChange={e => setFirstName(e.target.value)}
+          />
           <Label for="lastName">Last Name:</Label>
-          <Input type="text" name="lastName" />
+          <Input
+            type="text"
+            name="lastName"
+            value={lastName}
+            onChange={e => setLastName(e.target.value)}
+          />
           <Label for="email">Email:</Label>
-          <Input type="text" name="email" />
+          <Input
+            type="text"
+            name="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
           <Label for="password">Password:</Label>
-          <Input type="password" name="password" />
+          <Input
+            type="password"
+            name="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
           {/* <Form.Select
             fluid
             label="I'd like to be a..."
