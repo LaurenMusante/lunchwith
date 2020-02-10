@@ -10,9 +10,7 @@ const User = {
    * @returns {object} reflection object 
    */
   async create(req, res) {
-    console.log(req.body);
-
-    if (!req.body.email || !req.body.password || !req.body.firstName || !req.body.lastName) {
+    if (!req.body.email || !req.body.password || !req.body.firstname || !req.body.lastname) {
       return res.status(400).send({ 'message': 'Some values are missing' });
     }
     if (!Helper.isValidEmail(req.body.email)) {
@@ -21,24 +19,21 @@ const User = {
     const hashPassword = Helper.hashPassword(req.body.password);
 
     const createQuery = `INSERT INTO
-      users(id, firstName, lastName, email, password)
+      users(id, firstname, lastname, email, password)
       VALUES($1, $2, $3, $4, $5)
       returning *`;
     const values = [
       uuidv4(),
-      req.body.firstName,
-      req.body.lastName,
+      req.body.firstname,
+      req.body.lastname,
       req.body.email,
       hashPassword,
     ];
 
     try {
-      console.log('createQuery:', createQuery);
-      console.log('values :', values);
-      return res.status(201).send({createQuery, values});
-      // const { rows } = await db.query(createQuery, values);
-      // const token = Helper.generateToken(rows[0].id);
-      // return res.status(201).send({ token });
+      const { rows } = await db.query(createQuery, values);
+      const token = Helper.generateToken(rows[0].id);
+      return res.status(201).send({ token });
     } catch (error) {
       if (error.routine === '_bt_check_unique') {
         return res.status(400).send({ 'message': 'User with that EMAIL already exist' })
@@ -76,12 +71,12 @@ const User = {
     }
   },
 
-/**
- * Get All Users
- * @param {object} req 
- * @param {object} res 
- * @returns {object} lunches array
- */
+  /**
+   * Get All Users
+   * @param {object} req 
+   * @param {object} res 
+   * @returns {object} lunches array
+   */
   async getAll(req, res) {
     const findAllQuery = 'SELECT * FROM users';
     try {

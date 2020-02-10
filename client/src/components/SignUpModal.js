@@ -101,8 +101,8 @@ const SignUpModalWrapper = styled.div`
 `;
 
 const SignUpModal = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstname, setFirstName] = useState('');
+  const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -110,8 +110,8 @@ const handleSubmit = async event => {
   event.preventDefault();
   try {
     const response = await axios.post('http://localhost:5000/api/v1/users/', {
-      firstName,
-      lastName,
+      firstname,
+      lastname,
       email,
       password
       // mentor: 'true',
@@ -136,18 +136,18 @@ const handleSubmit = async event => {
         <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
         <Header>Become a Member</Header>
         <SignUpForm onSubmit={handleSubmit}>
-          <Label for="firstName">First Name:</Label>
+          <Label for="firstname">First Name:</Label>
           <Input
             type="text"
-            name="firstName"
-            value={firstName}
+            name="firstname"
+            value={firstname}
             onChange={e => setFirstName(e.target.value)}
           />
-          <Label for="lastName">Last Name:</Label>
+          <Label for="lastname">Last Name:</Label>
           <Input
             type="text"
-            name="lastName"
-            value={lastName}
+            name="lastname"
+            value={lastname}
             onChange={e => setLastName(e.target.value)}
           />
           <Label for="email">Email:</Label>
