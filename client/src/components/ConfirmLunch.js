@@ -6,18 +6,15 @@ const ConfirmLunchDiv = styled.div`
 	width: 100vw;
 	height: 100vh;
 	background-color: green;
+	position: relative;
 	z-index: 50;
 `;
 
 const ConfirmLunch = () => {
 	return(
-		<div>
 			<ConfirmLunchDiv>
-
-					<h1>HI</h1>
-	
+					<h1>HI</h1>	
 			</ConfirmLunchDiv>
-		</div>
 	)
 };
 

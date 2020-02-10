@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios'
+//DECLINE - node. express endpoint to send rejection email
+//check useHistory() react router. there is a .goBack() method.
 
 const InviteDiv = styled.div`
   background: rgba(0, 0, 0, 0.6);
