@@ -10,7 +10,9 @@ const User = {
    * @returns {object} reflection object 
    */
   async create(req, res) {
-    if (!req.body.email || !req.body.password || !req.body.firstname || !req.body.lastname) {
+    console.log(req.body);
+
+    if (!req.body.email || !req.body.password || !req.body.firstName || !req.body.lastName) {
       return res.status(400).send({ 'message': 'Some values are missing' });
     }
     if (!Helper.isValidEmail(req.body.email)) {
@@ -24,16 +26,19 @@ const User = {
       returning *`;
     const values = [
       uuidv4(),
-      req.body.firstname,
-      req.body.lastname,
+      req.body.firstName,
+      req.body.lastName,
       req.body.email,
       hashPassword,
     ];
 
     try {
-      const { rows } = await db.query(createQuery, values);
-      const token = Helper.generateToken(rows[0].id);
-      return res.status(201).send({ token });
+      console.log('createQuery:', createQuery);
+      console.log('values :', values);
+      return res.status(201).send({createQuery, values});
+      // const { rows } = await db.query(createQuery, values);
+      // const token = Helper.generateToken(rows[0].id);
+      // return res.status(201).send({ token });
     } catch (error) {
       if (error.routine === '_bt_check_unique') {
         return res.status(400).send({ 'message': 'User with that EMAIL already exist' })

@@ -4,11 +4,13 @@ import 'babel-polyfill';
 import Lunch from './src/usingDB/controllers/lunches';
 import User from './src/usingDB/controllers/users';
 import Auth from './src/usingDB/middleware/Auth';
+import cors from 'cors';
 
 dotenv.config();
 const app = express()
 
 app.use(express.json())
+app.use(cors({origin: 'http://localhost:3000'}))
 
 app.get('/', (req, res) => {
   return res.status(200).send({ 'message': 'YAY! Congratulations! Your first endpoint is working' });

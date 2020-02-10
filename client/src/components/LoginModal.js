@@ -70,9 +70,6 @@ const ModalWrapper = styled.div`
 
 const SubmitButton = styled(LoginButton)``;
 
-
-
-
 const LoginModal = ({...other}) => {
   const [isOpen, setIsOpen] = useState(false);
   if (!isOpen) {

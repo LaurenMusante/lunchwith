@@ -100,35 +100,27 @@ const SignUpModalWrapper = styled.div`
   flex-direction: column;
 `;
 
-function handleSubmit(event) {
-  event.preventDefault();
-  createUser();
-};
-
-const createUser = async () => {
-  try {
-    return await axios.post('http://localhost:5000/api/v1/users/', { user: {
-      firstName: 'firstName', 
-      lastName: 'lastName', 
-      email: 'email',
-      password: 'password',
-      mentor: 'true',
-      skills: []
-      }
-    })
-  } catch (error) {
-    console.error(error)
-  }
-}
-
-
-
 const SignUpModal = () => {
-  // const [firstName, setFirstName] = useState('');
-  // const [lastName, setLastName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+const handleSubmit = async event => {
+  event.preventDefault();
+  try {
+    const response = await axios.post('http://localhost:5000/api/v1/users/', {
+      firstName,
+      lastName: 'lastName',
+      email: 'email@email.com',
+      password: 'password'
+      // mentor: 'true',
+      // skills: []
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 	const [isOpen, setIsOpen] = useState(false);
 	if (!isOpen) {
@@ -140,36 +132,36 @@ const SignUpModal = () => {
 
 	return ReactDOM.createPortal(
     <SignUpModalWrapper>
-    <Modal>
-      <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
-      <Header>Become a Member</Header>
-      <SignUpForm>
-        <Label for="firstName">First Name:</Label>
-        <Input type="text" name="firstName" />
-        <Label for="lastName">Last Name:</Label>
-        <Input type="text" name="lastName" />
-        <Label for="email">Email:</Label>
-        <Input type="text" name="email" />
-        <Label for="pass">Password:</Label>
-        <Input type="password" name="pass" />
-        <Form.Select
-          fluid
-          label="I'd like to be a..."
-          options={mentorOptions}
-					placeholder="Mentor"
-        />
-        <Form.Select
-          fluid
-          label="Select Your Top 3 Skills"
-          options={skillOptions}
-          multiple
-          select
-          placeholder="Skills"
-        />
-				<br></br>
-        <SubmitButton type="submit" onSubmit={handleSubmit}>Submit</SubmitButton>
-      </SignUpForm>
-    </Modal>
+      <Modal>
+        <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+        <Header>Become a Member</Header>
+        <SignUpForm onSubmit={handleSubmit}>
+          <Label for="firstName">First Name:</Label>
+          <Input type="text" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
+          <Label for="lastName">Last Name:</Label>
+          <Input type="text" name="lastName" />
+          <Label for="email">Email:</Label>
+          <Input type="text" name="email" />
+          <Label for="password">Password:</Label>
+          <Input type="password" name="password" />
+          {/* <Form.Select
+            fluid
+            label="I'd like to be a..."
+            options={mentorOptions}
+            placeholder="Mentor"
+          />
+          <Form.Select
+            fluid
+            label="Select Your Top 3 Skills"
+            options={skillOptions}
+            multiple
+            select
+            placeholder="Skills"
+          /> */}
+          <br></br>
+          <SubmitButton type="submit">Submit</SubmitButton>
+        </SignUpForm>
+      </Modal>
     </SignUpModalWrapper>,
     document.getElementById('modal-root')
   );
