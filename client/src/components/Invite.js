@@ -7,6 +7,7 @@ import axios from 'axios'
 
 const InviteDiv = styled.div`
   background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
   height: 80vh;
   width: 60vw;
   margin-left: 20%;
