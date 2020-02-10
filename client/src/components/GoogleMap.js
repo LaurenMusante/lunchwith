@@ -1,5 +1,6 @@
 //google-maps-react
 import React from 'react';
+import Invite from "./Invite"
 import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 require('dotenv').config();
 //wrap map in styled component. 
@@ -26,7 +27,7 @@ export class GoogleMap extends React.Component {
                    lat: store.lat,
                    lng: store.lng
                  }}
-                 onClick={() => console.log('You clicked me!')}
+                 onClick={() => console.log("HI")}
                />
              );
            });

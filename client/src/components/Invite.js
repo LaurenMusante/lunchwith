@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios'
 
@@ -86,11 +87,20 @@ const addLunch = async () => {
 
 
 const Invite = () => {
+	// const [isOpen, setIsOpen] = useState(false);
+	// if (!isOpen) {
+  //   return (
+  //     <Invite  />
+  //   );
+  // }
 	return (
     <InviteDiv>
       <InviteContent>
-        <InviteHeader> USER has requested lunch with you on DATE at TIME</InviteHeader>
-        <LunchForm>
+        <InviteHeader>
+          {' '}
+          USER has requested lunch with you on DATE at TIME
+        </InviteHeader>
+        <LunchForm onSubmit={handleSubmit}>
           <h3>Please select 1 restaurant from the following options:</h3>
           <RestaurantLabel for="restaurant1">Restaurant 1</RestaurantLabel>
           <input type="radio" name="restaurant1"></input>
@@ -100,12 +110,15 @@ const Invite = () => {
 
           <RestaurantLabel for="restaurant3">Restaurant 3</RestaurantLabel>
           <input type="radio" name="restaurant3"></input>
-          <AcceptButton type="submit" onSubmit={handleSubmit}>Accept</AcceptButton>
-					<DeclineButton onClick={handleDecline}>Decline</DeclineButton>
+          <AcceptButton type="submit">
+            {' '}
+            <Link to="/confirmlunch">Accept</Link>
+          </AcceptButton>
+          <DeclineButton onClick={handleDecline}>Decline</DeclineButton>
         </LunchForm>
       </InviteContent>
     </InviteDiv>
   );
 };
 
-export default Invite
+export default Invite;
