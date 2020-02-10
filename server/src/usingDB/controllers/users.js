@@ -10,7 +10,7 @@ const User = {
    * @returns {object} reflection object 
    */
   async create(req, res) {
-    if (!req.body.email || !req.body.password || !req.body.name) {
+    if (!req.body.email || !req.body.password || !req.body.firstname || !req.body.lastname) {
       return res.status(400).send({ 'message': 'Some values are missing' });
     }
     if (!Helper.isValidEmail(req.body.email)) {
@@ -19,12 +19,13 @@ const User = {
     const hashPassword = Helper.hashPassword(req.body.password);
 
     const createQuery = `INSERT INTO
-      users(id, name, email, password)
-      VALUES($1, $2, $3, $4)
+      users(id, firstname, lastname, email, password)
+      VALUES($1, $2, $3, $4, $5)
       returning *`;
     const values = [
       uuidv4(),
-      req.body.name,
+      req.body.firstname,
+      req.body.lastname,
       req.body.email,
       hashPassword,
     ];
@@ -40,6 +41,7 @@ const User = {
       return res.status(400).send(error);
     }
   },
+
   /**
    * Login
    * @param {object} req 
@@ -57,10 +59,10 @@ const User = {
     try {
       const { rows } = await db.query(text, [req.body.email]);
       if (!rows[0]) {
-        return res.status(400).send({ 'message': 'The credentials you provided is incorrect' });
+        return res.status(400).send({ 'message': 'The credentials you provided are incorrect' });
       }
       if (!Helper.comparePassword(rows[0].password, req.body.password)) {
-        return res.status(400).send({ 'message': 'The credentials you provided is incorrect' });
+        return res.status(400).send({ 'message': 'The credentials you provided are incorrect' });
       }
       const token = Helper.generateToken(rows[0].id);
       return res.status(200).send({ token });
@@ -68,6 +70,23 @@ const User = {
       return res.status(400).send(error)
     }
   },
+
+/**
+ * Get All Users
+ * @param {object} req 
+ * @param {object} res 
+ * @returns {object} lunches array
+ */
+  async getAll(req, res) {
+    const findAllQuery = 'SELECT * FROM users';
+    try {
+      const { rows } = await db.query(findAllQuery);
+      return res.status(200).send({ rows });
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  },
+
   /**
    * Delete A User
    * @param {object} req 

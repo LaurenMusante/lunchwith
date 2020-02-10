@@ -12,16 +12,18 @@ pool.on('connect', () => {
 });
 
 /**
- * Create Tables
+ * Create Lunches Table
  */
-const createTables = () => {
+const createLunchesTable = () => {
   const queryText =
     `CREATE TABLE IF NOT EXISTS
-      users(
+      lunches(
         id UUID PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
-        password VARCHAR(255) NOT NULL,
+        mentorid VARCHAR(255) NOT NULL,
+        menteeid VARCHAR(255) NOT NULL,
+        status VARCHAR(255) NOT NULL,
+        date VARCHAR(255) NOT NULL,
+        restaurant VARCHAR(255)
       )`;
 
   pool.query(queryText)
@@ -36,10 +38,19 @@ const createTables = () => {
 }
 
 /**
- * Drop Tables
+ * Create Users Table
  */
-const dropTables = () => {
-  const queryText = 'DROP TABLE IF EXISTS users';
+const createUsersTable = () => {
+  const queryText =
+    `CREATE TABLE IF NOT EXISTS
+      users(
+        id UUID PRIMARY KEY,
+        firstname VARCHAR(255) NOT NULL,
+        lastname VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
+      )`;
+
   pool.query(queryText)
     .then((res) => {
       console.log(res);
@@ -51,14 +62,18 @@ const dropTables = () => {
     });
 }
 
-pool.on('remove', () => {
-  console.log('client removed');
-  process.exit(0);
-});
+/**
+ * Create All Tables
+ */
+const createAllTables = () => {
+  createUsersTable();
+  createLunchesTable();
+}
 
 module.exports = {
-  createTables,
-  dropTables
+  createLunchesTable,
+  createUsersTable,
+  createAllTables,
 };
 
 require('make-runnable');
