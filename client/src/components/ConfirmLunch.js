@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const ConfirmLunchDiv = styled.div`
@@ -47,13 +48,16 @@ const CloseButton = styled.button`
 `;
 
 const ConfirmLunch = () => {
-	return (
+  return (
     <ConfirmLunchDiv>
-			<CloseButton>X</CloseButton>
+      <CloseButton>X</CloseButton>
       <ConfirmLunchHeader>
         Lunch with USER at TIME on DAY has been added to your schedule!
       </ConfirmLunchHeader>
-      <ViewScheduleButton>View Schedule</ViewScheduleButton>
+      <ViewScheduleButton>
+        {' '}
+        <Link to="/calendar">View Schedule</Link>
+      </ViewScheduleButton>
     </ConfirmLunchDiv>
   );
 };

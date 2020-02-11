@@ -113,7 +113,7 @@ const handleSubmit = async event => {
       firstname,
       lastname,
       email,
-      password
+      password,
       // mentor: 'true',
       // skills: []
     });
@@ -121,6 +121,10 @@ const handleSubmit = async event => {
     console.error(error);
   }
 };
+
+// const handleChange = (event, data) => {
+//   this.setState({value: data.value});
+// }
 
 	const [isOpen, setIsOpen] = useState(false);
 	if (!isOpen) {
@@ -164,20 +168,21 @@ const handleSubmit = async event => {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          {/* <Form.Select
+           {/* <Form.Select
             fluid
             label="I'd like to be a..."
             options={mentorOptions}
             placeholder="Mentor"
-          />
-          <Form.Select
+            onChange={handleChange}
+          /> */}
+          {/* <Form.Select
             fluid
             label="Select Your Top 3 Skills"
             options={skillOptions}
             multiple
             select
             placeholder="Skills"
-          /> */}
+          />  */}
           <br></br>
           <SubmitButton type="submit">Submit</SubmitButton>
         </SignUpForm>

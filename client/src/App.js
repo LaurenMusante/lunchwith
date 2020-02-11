@@ -4,17 +4,20 @@ import data from './data/UserData.json';
 import Header from './components/Header';
 import styled from 'styled-components';
 import Invite from './components/Invite';
-import ConfirmLunch from './components/ConfirmLunch'
+import ConfirmLunch from './components/ConfirmLunch';
+import Calendar from './components/Calendar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 require('dotenv').config();
 
-// console.log(process.env.REACT_APP_GOOGLE_API_KEY);
-function App() {
+console.log(process.env.REACT_APP_GOOGLE_API_KEY);
+
+const App = () => {
   return (
     <Router>
       <AppWrapper>
         <Header />
         <GoogleMap />
+        <Calendar />
       </AppWrapper>
 
       <Switch>
@@ -24,10 +27,13 @@ function App() {
         <Route path="/confirmlunch">
           <ConfirmLunch />
         </Route>
+        <Route path="/calendar">
+          <Calendar />
+        </Route>
       </Switch>
     </Router>
   );
-}
+  }
 
 export default App;
 

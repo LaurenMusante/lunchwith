@@ -81,20 +81,20 @@ const LoginModal = ({...other}) => {
   
   return ReactDOM.createPortal(
     <ModalWrapper>
-    <Modal>
-      <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
-      <LoginHeader>Log In</LoginHeader>
-      <LogInForm>
-        <Label for="name">Name:</Label>
-        <Input type="text" name="name" />
-        <Label for="email">Email:</Label>
-        <Input type="text" name="email" />
-        <Label for="pass">Password:</Label>
-        <Input type="password" name="pass" />
-        <br></br>
-        <SubmitButton type="submit">Submit</SubmitButton>
-      </LogInForm>
-    </Modal>
+      <Modal>
+        <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+        <LoginHeader>Log In</LoginHeader>
+        <LogInForm>
+          <Label for="name">Name:</Label>
+          <Input type="text" name="name" />
+          <Label for="email">Email:</Label>
+          <Input type="text" name="email" />
+          <Label for="pass">Password:</Label>
+          <Input type="password" name="pass" />
+          <br></br>
+          <SubmitButton type="submit">Submit</SubmitButton>
+        </LogInForm>
+      </Modal>
     </ModalWrapper>,
     document.getElementById('modal-root')
   );
