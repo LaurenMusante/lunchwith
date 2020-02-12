@@ -1,6 +1,5 @@
 import React from 'react';
 import GoogleMap from './components/GoogleMap';
-import data from './data/UserData.json';
 import Header from './components/Header';
 import styled from 'styled-components';
 import Invite from './components/Invite';
