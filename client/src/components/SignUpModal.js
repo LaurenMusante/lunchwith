@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
-import { Form } from 'semantic-ui-react';
+import { Form, Icon } from 'semantic-ui-react';
 import axios from 'axios'
 
 const mentorOptions = [
@@ -137,7 +137,10 @@ const handleSubmit = async event => {
 	return ReactDOM.createPortal(
     <SignUpModalWrapper>
       <Modal>
-        <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+        <CloseButton onClick={() => setIsOpen(false)}>
+          {' '}
+          <Icon color="white" size="large" name="window close" />
+        </CloseButton>
         <Header>Become a Member</Header>
         <SignUpForm onSubmit={handleSubmit}>
           <Label for="firstname">First Name:</Label>
@@ -168,7 +171,7 @@ const handleSubmit = async event => {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-           {/* <Form.Select
+          {/* <Form.Select
             fluid
             label="I'd like to be a..."
             options={mentorOptions}

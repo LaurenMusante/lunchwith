@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Invite from './components/Invite';
 import ConfirmLunch from './components/ConfirmLunch';
 import Calendar from './components/Calendar';
+import Availability from './components/Availability';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 require('dotenv').config();
 
@@ -16,7 +17,7 @@ const App = () => {
       <AppWrapper>
         <Header />
         <GoogleMap />
-        <Calendar />
+        {/* <Calendar /> */}
       </AppWrapper>
 
       <Switch>
@@ -28,6 +29,9 @@ const App = () => {
         </Route>
         <Route path="/calendar">
           <Calendar />
+        </Route>
+        <Route path="/availability">
+          <Availability />
         </Route>
       </Switch>
     </Router>

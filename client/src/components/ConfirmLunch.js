@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Icon } from 'semantic-ui-react'
 import axios from 'axios';
 
 const ConfirmLunchDiv = styled.div`
@@ -50,7 +51,10 @@ const CloseButton = styled.button`
 const ConfirmLunch = () => {
   return (
     <ConfirmLunchDiv>
-      <CloseButton>X</CloseButton>
+      <CloseButton>
+        {' '}
+        <Icon color="white" size="large" name="window close" />
+      </CloseButton>
       <ConfirmLunchHeader>
         Lunch with USER at TIME on DAY has been added to your schedule!
       </ConfirmLunchHeader>

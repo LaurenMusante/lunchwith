@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import React, { Component } from 'react';
 import SimpleReactCalendar from 'simple-react-calendar';
+import { Icon } from 'semantic-ui-react'
 
 const CalendarWrapper = styled.div`
   background: rgba(0, 0, 0, 0.6);
@@ -17,10 +18,29 @@ const CalendarWrapper = styled.div`
   margin-top: 12%;
   position: absolute;
 `;
+
+const CloseButton = styled.button`
+  background: rgba(0, 0, 0, 0);
+  color: white;
+  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
+  font-size: 25px;
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: #4d4d4d;
+  border-radius: 20px;
+  width: 5px;
+`;
 class Calendar extends Component {
   render() {
     return (
       <CalendarWrapper>
+        <CloseButton>
+          {' '}
+          <Icon color="white" size="large" name="window close" />
+        </CloseButton>
         <SimpleReactCalendar
           activeMonth={new Date()}
           style={{

@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled, {css} from 'styled-components';
 import { Icon } from 'semantic-ui-react';
 import ProfileModal from './ProfileModal';
-import LoginModal from './LoginModal'
+import LoginModal from './LoginModal';
+import { Link } from 'react-router-dom';
 
 const Drawer = styled.div`
   position: fixed;
@@ -98,9 +98,16 @@ const HamburgerDrawer = () => {
         <NavButton>
           <ProfileModal />
         </NavButton> */}
-        <NavButton>View Schedule</NavButton>
+        <NavButton>
+          <Link to="/calendar" style={{ color: 'white' }}>
+            View Schedule
+          </Link>
+        </NavButton>
         <NavButton onClick={handleSignOut}>Sign Out</NavButton>
-        <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+        <CloseButton onClick={() => setIsOpen(false)}>
+          {' '}
+          <Icon color="white" size="large" name="window close" />
+        </CloseButton>
       </Drawer>
     </DrawerWrapper>
   );

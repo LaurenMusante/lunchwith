@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { Icon } from 'semantic-ui-react'
 
 const Modal = styled.div`
   background: rgba(0, 0, 0, 0.6);
@@ -82,7 +83,10 @@ const LoginModal = ({...other}) => {
   return ReactDOM.createPortal(
     <ModalWrapper>
       <Modal>
-        <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+        <CloseButton onClick={() => setIsOpen(false)}>
+          {' '}
+          <Icon color="white" size="large" name="window close" />
+        </CloseButton>
         <LoginHeader>Log In</LoginHeader>
         <LogInForm>
           <Label for="name">Name:</Label>

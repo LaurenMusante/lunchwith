@@ -1,46 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Icon } from 'semantic-ui-react';
 import Sloth from './sloth.jpg'
-
-const ProfileModal = ({...other}) => {
-  const [isOpen, setIsOpen] = useState(false);
-  if (!isOpen) {
-    document.getElementById('root').style.filter = 'blur(0px)';
-    return <ProfileButton onClick={() => setIsOpen(true)} {...other}>View Profile</ProfileButton>;
-  }
-
-  document.getElementById('root').style.filter = 'blur(3px)';
-
-  return ReactDOM.createPortal(
-    <ProfileModalWrapper>
-      <ProfileModalDiv>
-        <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
-        <ProfileContainer>
-            <Image src={Sloth}/>
-
-          <Header> USER NAME </Header>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <h1> Skills </h1>
-          <h3>Skill 1</h3>
-          <h3>Skill 2</h3>
-          <h3>Skill 3</h3>
-        </ProfileContainer>
-      </ProfileModalDiv>
-    </ProfileModalWrapper>,
-    document.getElementById('modal-root')
-  );
-};
-
-export default ProfileModal;
 
 const ProfileModalDiv = styled.div`
   background: rgba(0, 0, 0, 0.6);
@@ -59,9 +22,7 @@ const ProfileModalDiv = styled.div`
   overflow: scroll;
 `;
 
-const ProfileContainer = styled.div`
-
-`;
+const ProfileContainer = styled.div``;
 
 const Header = styled.h1`
   text-align: center;
@@ -74,8 +35,8 @@ const Image = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-	margin-top: 15vh;
-	border-radius: 50%;
+  margin-top: 15vh;
+  border-radius: 50%;
   width: 30%;
 `;
 
@@ -83,7 +44,7 @@ const ProfileButton = styled.button`
   padding: 20px;
   background-color: #00b3b3;
   border-style: solid;
-  border-color: orange;
+  border-color: #00b3b3;
   border-width: 2px;
   color: white;
   width: 140px;
@@ -93,7 +54,6 @@ const ProfileButton = styled.button`
   font-family: 'Cabin', sans-serif;
   font-size: 18px;
 `;
-
 
 const CloseButton = styled(ProfileButton)`
   background: rgba(0, 0, 0, 0);
@@ -116,6 +76,70 @@ const ProfileModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+const SkillCard = styled.div`
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  background-color: coral;
+  font-weight: bolder;
+  transition: 0.3s;
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+  font-size: 15px;
+  display: inline;
+`;
+
+const AvailButton = styled(ProfileButton)`
+border-radius: 8px;
+margin-left: 12vw;
+`;
+
+const ProfileModal = ({...other}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  if (!isOpen) {
+    document.getElementById('root').style.filter = 'blur(0px)';
+    return <ProfileButton onClick={() => setIsOpen(true)} {...other}>View Profile</ProfileButton>;
+  }
+
+  document.getElementById('root').style.filter = 'blur(3px)';
+
+  return ReactDOM.createPortal(
+    <ProfileModalWrapper>
+      <ProfileModalDiv>
+        <CloseButton onClick={() => setIsOpen(false)}>
+          {' '}
+          <Icon color="white" size="large" name="window close" />
+        </CloseButton>
+        <ProfileContainer>
+          <Image src={Sloth} />
+          <Header> USER NAME </Header>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <Header> Skills </Header>
+          <SkillCard>Skill 1</SkillCard>
+          <SkillCard>Skill 2</SkillCard>
+          <SkillCard>Skill 3</SkillCard>
+          <AvailButton>
+            {' '}
+            <Link to="/availability" style={{color: 'white'}}>Add Availability</Link>{' '}
+          </AvailButton>
+        </ProfileContainer>
+      </ProfileModalDiv>
+    </ProfileModalWrapper>,
+    document.getElementById('modal-root')
+  );
+};
+
+
+export default ProfileModal;
+
 
 
 
