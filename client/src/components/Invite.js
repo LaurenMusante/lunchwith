@@ -115,7 +115,7 @@ const Invite = () => {
           <input type="radio" name="restaurant3"></input>
           <AcceptButton type="submit">
             {' '}
-            <Link to="/confirmlunch">Accept</Link>
+            <Link to="/confirmlunch" style={{color:'white'}}>Accept</Link>
           </AcceptButton>
           <DeclineButton onClick={handleDecline}>Decline</DeclineButton>
         </LunchForm>

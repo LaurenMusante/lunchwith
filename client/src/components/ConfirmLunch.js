@@ -60,7 +60,7 @@ const ConfirmLunch = () => {
       </ConfirmLunchHeader>
       <ViewScheduleButton>
         {' '}
-        <Link to="/calendar">View Schedule</Link>
+        <Link to="/calendar" style={{ color: 'white' }}>View Schedule</Link>
       </ViewScheduleButton>
     </ConfirmLunchDiv>
   );

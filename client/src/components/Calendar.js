@@ -34,6 +34,7 @@ const CloseButton = styled.button`
   width: 5px;
 `;
 class Calendar extends Component {
+
   render() {
     return (
       <CalendarWrapper>

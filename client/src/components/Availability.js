@@ -154,13 +154,13 @@ const timeOptions = [
 ];
   
 const Availability = () => {
-  const [isOpen, setIsOpen] = useState(true);
-  if (isOpen) {
+  // const [isOpen, setIsOpen] = useState(true);
+  // if (isOpen) {
+  //   setIsOpen(true)
+  // onClick={() => setIsOpen(false)}
   return (
-      setIsOpen(true)
-      <AvailabilityWrapper>
-        <CloseButton onClick={() => setIsOpen(false)}>
-          {' '}
+    <AvailabilityWrapper>
+        <CloseButton>
           <Icon color="white" size="large" name="window close" />
         </CloseButton>
         <AvailabilityForm>
@@ -196,7 +196,5 @@ const Availability = () => {
       </AvailabilityWrapper>
     );
   }
-}
-
 
 export default Availability;
