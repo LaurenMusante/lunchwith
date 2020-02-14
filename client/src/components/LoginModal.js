@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { Icon } from 'semantic-ui-react'
+import axios from 'axios';
+import { logInUser, sendUserToRedux } from '../actions';
+import { connect, useDispatch } from 'react-redux';
+
 
 const Modal = styled.div`
   background: rgba(0, 0, 0, 0.6);
@@ -71,7 +75,24 @@ const ModalWrapper = styled.div`
 
 const SubmitButton = styled(LoginButton)``;
 
-const LoginModal = ({...other}) => {
+const LoginModal = ({ ...other }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+
+  const handleSubmit = async event => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/api/v1/users/login', {
+        email,
+        password
+      });
+      dispatch(sendUserToRedux(response.data.rows[0]));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const [isOpen, setIsOpen] = useState(false);
   if (!isOpen) {
     document.getElementById('root').style.filter = 'blur(0px)';
@@ -79,7 +100,7 @@ const LoginModal = ({...other}) => {
   }
 
   document.getElementById('root').style.filter = 'blur(3px)';
-  
+
   return ReactDOM.createPortal(
     <ModalWrapper>
       <Modal>
@@ -88,13 +109,21 @@ const LoginModal = ({...other}) => {
           <Icon color="white" size="large" name="window close" />
         </CloseButton>
         <LoginHeader>Log In</LoginHeader>
-        <LogInForm>
-          <Label for="name">Name:</Label>
-          <Input type="text" name="name" />
+        <LogInForm onSubmit={handleSubmit}>
           <Label for="email">Email:</Label>
-          <Input type="text" name="email" />
+          <Input 
+            type="text"
+            name="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
           <Label for="pass">Password:</Label>
-          <Input type="password" name="pass" />
+          <Input
+            type="password"
+            name="pass"
+            value={password} 
+            onChange={e => setPassword(e.target.value)}
+          />
           <br></br>
           <SubmitButton type="submit">Submit</SubmitButton>
         </LogInForm>
@@ -105,7 +134,3 @@ const LoginModal = ({...other}) => {
 };
 
 export default LoginModal;
-
-
-
-

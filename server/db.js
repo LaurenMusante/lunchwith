@@ -44,11 +44,16 @@ const createUsersTable = () => {
   const queryText =
     `CREATE TABLE IF NOT EXISTS
       users(
-        id UUID PRIMARY KEY,
-        firstName VARCHAR(255) NOT NULL,
-        lastName VARCHAR(255) NOT NULL,
+        id UUID,
+        firstname VARCHAR(255) NOT NULL,
+        lastname VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL,
-        password VARCHAR(255) NOT NULL
+        password VARCHAR(255) NOT NULL,
+        bio TEXT,
+        mentor BOOLEAN,
+        joindate DATE,
+        skills TEXT [],
+        address VARCHAR(255)
       )`;
 
   pool.query(queryText)

@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
 import { Form, Icon } from 'semantic-ui-react';
@@ -106,35 +106,33 @@ const SignUpModal = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-const handleSubmit = async event => {
-  event.preventDefault();
-  try {
-    const response = await axios.post('http://localhost:5000/api/v1/users/', {
-      firstname,
-      lastname,
-      email,
-      password,
-      // mentor: 'true',
-      // skills: []
-    });
-  } catch (error) {
-    console.error(error);
+  const handleSubmit = async event => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/api/v1/users/', {
+        firstname,
+        lastname,
+        email,
+        password,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // const handleChange = (event, data) => {
+  //   this.setState({value: data.value});
+  // }
+
+  const [isOpen, setIsOpen] = useState(false);
+  if (!isOpen) {
+    document.getElementById('root').style.filter = 'blur(0px)';
+    return <SignUpButton onClick={() => setIsOpen(true)}>Sign Up</SignUpButton>
   }
-};
 
-// const handleChange = (event, data) => {
-//   this.setState({value: data.value});
-// }
+  document.getElementById('root').style.filter = 'blur(3px)';
 
-	const [isOpen, setIsOpen] = useState(false);
-	if (!isOpen) {
-		document.getElementById('root').style.filter = 'blur(0px)';
-		return <SignUpButton onClick={() => setIsOpen(true)}>Sign Up</SignUpButton>
-	}
-
-		document.getElementById('root').style.filter = 'blur(3px)';
-
-	return ReactDOM.createPortal(
+  return ReactDOM.createPortal(
     <SignUpModalWrapper>
       <Modal>
         <CloseButton onClick={() => setIsOpen(false)}>

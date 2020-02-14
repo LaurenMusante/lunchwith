@@ -35,6 +35,8 @@ const User = {
       const token = Helper.generateToken(rows[0].id);
       return res.status(201).send({ token });
     } catch (error) {
+      console.log(error);
+      
       if (error.routine === '_bt_check_unique') {
         return res.status(400).send({ 'message': 'User with that EMAIL already exist' })
       }
@@ -55,9 +57,10 @@ const User = {
     if (!Helper.isValidEmail(req.body.email)) {
       return res.status(400).send({ 'message': 'Please enter a valid email address' });
     }
-    const text = 'SELECT * FROM users WHERE email = $1';
+    const text = 'SELECT * FROM users WHERE lower(email) = lower($1)';
     try {
       const { rows } = await db.query(text, [req.body.email]);
+      
       if (!rows[0]) {
         return res.status(400).send({ 'message': 'The credentials you provided are incorrect' });
       }
@@ -65,7 +68,7 @@ const User = {
         return res.status(400).send({ 'message': 'The credentials you provided are incorrect' });
       }
       const token = Helper.generateToken(rows[0].id);
-      return res.status(200).send({ token });
+      return res.status(200).send({ rows });
     } catch (error) {
       return res.status(400).send(error)
     }
