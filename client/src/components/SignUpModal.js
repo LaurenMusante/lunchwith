@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
 import { Form, Icon } from 'semantic-ui-react';
-import axios from 'axios'
+import axios from 'axios';
+import { sendUserToRedux } from '../actions';
+import { useDispatch } from 'react-redux';
 
 const mentorOptions = [
   { key: 'mr', text: 'Mentor', value: 'mentor' },
@@ -105,9 +107,11 @@ const SignUpModal = () => {
   const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = async event => {
     event.preventDefault();
+    setIsOpen(false);
     try {
       const response = await axios.post('http://localhost:5000/api/v1/users/', {
         firstname,
@@ -115,6 +119,7 @@ const SignUpModal = () => {
         email,
         password,
       });
+      dispatch(sendUserToRedux(response.data.rows[0]));
     } catch (error) {
       console.error(error);
     }

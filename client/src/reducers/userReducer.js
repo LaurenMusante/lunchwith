@@ -22,6 +22,18 @@ const userReducer = (state = initialState.currentUser, action) => {
 					email: null
         };
       }
+    case types.LOGOUT_USER:
+      return {
+        ...state,
+        id: null,
+        firstName: null,
+        lastName: null,
+        email: null,
+        mentor: false,
+        skills: [],
+        address: null,
+        bio: null
+      }
       default:
         return state;
       }

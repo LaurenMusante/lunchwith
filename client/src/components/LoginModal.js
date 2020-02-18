@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { Icon } from 'semantic-ui-react'
 import axios from 'axios';
-import { logInUser, sendUserToRedux } from '../actions';
-import { connect, useDispatch } from 'react-redux';
+import { sendUserToRedux } from '../actions';
+import { useDispatch } from 'react-redux';
 
 
 const Modal = styled.div`
@@ -82,6 +82,7 @@ const LoginModal = ({ ...other }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
+    setIsOpen(false);
     try {
       const response = await axios.post('http://localhost:5000/api/v1/users/login', {
         email,

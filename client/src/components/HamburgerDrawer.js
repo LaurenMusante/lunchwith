@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import styled, {css} from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Icon } from 'semantic-ui-react';
 import ProfileModal from './ProfileModal';
 import LoginModal from './LoginModal';
 import Calendar from './Calendar';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logOutUser } from '../actions';
+
+const slideOpen = keyframes`
+  0% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+`;
 
 const Drawer = styled.div`
   position: fixed;
@@ -19,7 +30,15 @@ const Drawer = styled.div`
   width: 20%;
   z-index: 20;
   background: rgba(0, 0, 0, 0.6);
-`;
+  `;
+
+const DrawerWrapper = styled.div`
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  `;
 
 const DrawerButton = styled.button`
   background-color: white;
@@ -30,6 +49,10 @@ const DrawerButton = styled.button`
   border: #00b3b3;
   z-index: 20;
   cursor: pointer;
+
+  &:click ${DrawerWrapper} {
+    animation: ${slideOpen} 3s ease-out;
+  }
 `;
 
 const ButtonCSS = css`
@@ -70,29 +93,24 @@ const CloseButton = styled(NavButton)`
   margin-top: 20px;
 `;
 
-const DrawerWrapper = styled.div`
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-`;
 
-function handleSignOut() {
-
-};
 
 const HamburgerDrawer = () => {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-	if (!isOpen) {
-		return (
+  if (!isOpen) {
+    return (
       <DrawerButton onClick={() => setIsOpen(true)}>
         <Icon name="bars"></Icon>
       </DrawerButton>
     );
   }
   
-	return (
+  function handleSignOut() {
+    dispatch(logOutUser());
+  };
+
+  return (
     <DrawerWrapper>
       <Drawer>
         <LoginNavButton />

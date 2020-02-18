@@ -8,9 +8,15 @@ import * as types from './../constants/ActionTypes';
 // }
 
 export const sendUserToRedux = (currentUser) => {
-    return {
-      type: types.LOGIN_USER,
-      currentUser,
-    };
-    
+  return {
+    type: types.LOGIN_USER,
+    currentUser,
   };
+
+};
+
+export const logOutUser = () => {
+  return {
+    type: types.LOGOUT_USER
+  }
+}
