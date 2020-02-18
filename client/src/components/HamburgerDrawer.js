@@ -4,6 +4,7 @@ import styled, {css} from 'styled-components';
 import { Icon } from 'semantic-ui-react';
 import ProfileModal from './ProfileModal';
 import LoginModal from './LoginModal';
+import Calendar from './Calendar';
 import { Link } from 'react-router-dom';
 
 const Drawer = styled.div`
@@ -61,6 +62,10 @@ const ProfileModalNavButton = styled(ProfileModal)`
   ${ButtonCSS}
 `;
 
+const ScheduleModalNavButton = styled(Calendar)`
+  ${ButtonCSS}
+`;
+
 const CloseButton = styled(NavButton)`
   margin-top: 20px;
 `;
@@ -98,11 +103,11 @@ const HamburgerDrawer = () => {
         <NavButton>
           <ProfileModal />
         </NavButton> */}
-        <NavButton>
+        <ScheduleModalNavButton>
           <Link to="/calendar" style={{ color: 'white' }}>
             View Schedule
           </Link>
-        </NavButton>
+        </ScheduleModalNavButton>
         <NavButton onClick={handleSignOut}>Sign Out</NavButton>
         <CloseButton onClick={() => setIsOpen(false)}>
           {' '}

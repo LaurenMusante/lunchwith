@@ -1,6 +1,6 @@
-// import React from 'react';
 import styled from 'styled-components'
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import SimpleReactCalendar from 'simple-react-calendar';
 import { Icon } from 'semantic-ui-react'
 
@@ -33,35 +33,62 @@ const CloseButton = styled.button`
   border-radius: 20px;
   width: 5px;
 `;
-class Calendar extends Component {
 
-  render() {
+const ScheduleButton = styled.button`
+  padding: 20px;
+  background-color: #00b3b3;
+  border-style: solid;
+  border-color: #00b3b3;
+  border-width: 2px;
+  color: white;
+  width: 140px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
+  font-size: 18px;
+`;
+
+const Calendar = ({ ...other }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  if (!isOpen) {
+    document.getElementById('root').style.filter = 'blur(0px)';
     return (
-      <CalendarWrapper>
-        <CloseButton>
-          {' '}
-          <Icon color="white" size="large" name="window close" />
-        </CloseButton>
-        <SimpleReactCalendar
-          activeMonth={new Date()}
-          style={{
-            zIndex: '100',
-            height: '100vh',
-            width: '100vw',
-            position: 'relative'
-          }}
-        />
-      </CalendarWrapper>
+      <ScheduleButton onClick={() => setIsOpen(true)} {...other}>
+        View Schedule
+      </ScheduleButton>
     );
   }
-}
+
+  document.getElementById('root').style.filter = 'blur(3px)';
+
+  return ReactDOM.createPortal(
+    <CalendarWrapper>
+      <CloseButton onClick={() => setIsOpen(false)}>
+        {' '}
+        <Icon color="white" size="large" name="window close" />
+      </CloseButton>
+             <SimpleReactCalendar
+      activeMonth={new Date()}
+      style={{
+        zIndex: '100',
+        height: '100vh',
+        width: '100vw',
+        position: 'relative'
+      }} 
+      />
+    </CalendarWrapper>,
+    document.getElementById('modal-root')
+  );
+};
 
 export default Calendar;
 
 
 
 
-
+      
+      
 
 // const CalendarDiv = styled.div`
 //   background: rgba(0, 0, 0, 0.6);

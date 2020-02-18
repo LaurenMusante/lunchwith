@@ -137,7 +137,6 @@ const ProfileModal = ({...other}) => {
   );
 };
 
-
 export default ProfileModal;
 
 
