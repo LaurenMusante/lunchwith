@@ -33,7 +33,12 @@ const User = {
     try {
       const { rows } = await db.query(createQuery, values);
       const token = Helper.generateToken(rows[0].id);
-      return res.status(201).send({ token });
+      const response = {
+        rows: rows,
+        token: token
+      }
+      return res.status(200).send(response);
+      //need to return token still somehow
     } catch (error) {
       console.log(error);
       
@@ -68,7 +73,11 @@ const User = {
         return res.status(400).send({ 'message': 'The credentials you provided are incorrect' });
       }
       const token = Helper.generateToken(rows[0].id);
-      return res.status(200).send({ rows });
+      const response = {
+        rows: rows,
+        token: token
+      }
+      return res.status(200).send(response);
     } catch (error) {
       return res.status(400).send(error)
     }
