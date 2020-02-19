@@ -13,6 +13,10 @@ require('dotenv').config();
 console.log(process.env.REACT_APP_GOOGLE_API_KEY);
 
 const App = () => {
+  window.navigator.geolocation.getCurrentPosition(
+  (position) => console.log(position), //success callback
+  (err) => console.log(err) //failuer callback
+  );
   return (
     <Router>
       <AppWrapper>
