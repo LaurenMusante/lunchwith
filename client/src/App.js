@@ -1,12 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Availability from './components/Availability';
+import Calendar from './components/Calendar';
+import ConfirmLunch from './components/ConfirmLunch';
+import CreateProfile from './components/CreateProfile';
 import GoogleMap from './components/GoogleMap';
 import Header from './components/Header';
-import styled from 'styled-components';
 import Invite from './components/Invite';
-import ConfirmLunch from './components/ConfirmLunch';
-import Calendar from './components/Calendar';
-import Availability from './components/Availability';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 require('dotenv').config();
 
 console.log(process.env.REACT_APP_GOOGLE_API_KEY);
@@ -17,6 +18,7 @@ const App = () => {
       <AppWrapper>
         <Header />
         <GoogleMap />
+        <CreateProfile />
         {/* <Calendar /> */}
       </AppWrapper>
 
