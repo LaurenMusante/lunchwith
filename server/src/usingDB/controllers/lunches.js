@@ -73,7 +73,7 @@ const Lunch = {
     const findOneQuery = 'SELECT * FROM lunches WHERE id=$1';
     const updateOneQuery = `UPDATE lunches
       SET mentorid=$1,menteeid=$2,status=$3,date=$4,restaurant=$5
-      WHERE id=$5 returning *`;
+      WHERE id=$6 returning *`;
     try {
       const { rows } = await db.query(findOneQuery, [req.params.id]);
       if (!rows[0]) {

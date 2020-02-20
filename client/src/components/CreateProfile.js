@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
-import { Form } from 'semantic-ui-react';
+import { Form, Icon } from 'semantic-ui-react';
+import { useDispatch, useSelector } from 'react-redux';
+import { sendUserToRedux } from '../actions';
+import axios from 'axios';
 
 const mentorOptions = [
-  { key: 'mr', text: 'Mentor', value: 'mentor' },
-  { key: 'me', text: 'Mentee', value: 'mentee' }
+  { key: 'mr', text: 'Mentor', value: true },
+  { key: 'me', text: 'Mentee', value: false }
 ];
 
 const skillOptions = [
@@ -43,7 +46,18 @@ const CreateProfileWrapper = styled.div`
   position: absolute;
   padding: 30px;
   overflow: scroll;
-`;
+  `;
+
+const SignUpButton = styled.button`
+    background-color: #00b3b3;
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    border: #00b3b3;
+    font-weight: bold;
+    font-family: 'Cabin', sans-serif;
+    font-size: 18px;
+  `;
 
 const ProfileForm = styled.form`
   display: flex;
@@ -70,12 +84,56 @@ const SubmitButton = styled.button`
   font-family: 'Cabin', sans-serif;
   font-size: 18px;
 `;
+
+const CloseButton = styled(SignUpButton)`
+  background: rgba(0, 0, 0, 0);
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: #4d4d4d;
+  border-radius: 20px;
+`;
+
 const CreateProfile = () => {
-	const [bio, setBio] = useState('');
+  const [bio, setBio] = useState('');
+  const [mentor, setMentor] = useState('');
+  const [skills, setSkills] = useState('');
+  const userID = useSelector(state => state.user.id);
+  const dispatch = useDispatch();
   
-	return (
+  
+  const [isOpen, setIsOpen] = useState(true);
+  if (!isOpen) {
+    document.getElementById('root').style.filter = 'blur(0px)';
+    return <SignUpButton onClick={() => setIsOpen(true)}>Sign Up</SignUpButton>
+  }
+  
+  const handleSubmit = async event => {
+    event.preventDefault();
+    console.log('form: ', bio, mentor, skills);
+    console.log('user ID is: ', userID);
+    
+    setIsOpen(false);
+    try {
+      const response = await axios.put(`http://localhost:5000/api/v1/users/${userID}`, {
+        bio,
+        mentor,
+        skills
+      });
+      // dispatch(sendUserToRedux(response.data.rows[0]));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return (
     <CreateProfileWrapper>
-      <ProfileForm>
+      <CloseButton onClick={() => setIsOpen(false)}>
+        {' '}
+        <Icon color="white" size="large" name="window close" />
+      </CloseButton>
+      <ProfileForm onSubmit={handleSubmit}>
         <Label for="bio">Tell us a bit about yourself:</Label>
         <Input
           type="textbox"
@@ -88,16 +146,17 @@ const CreateProfile = () => {
           label="I'd like to be a..."
           options={mentorOptions}
           placeholder="Mentor"
-          // onChange={handleChange}
+          onChange={(e, { value }) => setMentor(value)}
         />
         <Form.Select
-            fluid
-            label="Select your top 3 technical skills"
-            options={skillOptions}
-            multiple
-            select
-            placeholder="Skills"
-          /> 
+          fluid
+          label="Select your top 3 technical skills"
+          options={skillOptions}
+          multiple
+          select
+          placeholder="Skills"
+          onChange={(e, { value }) => setSkills(value)}
+        />
         <br></br>
         <SubmitButton type="submit">Submit</SubmitButton>
       </ProfileForm>
