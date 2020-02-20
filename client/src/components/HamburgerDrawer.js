@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import styled, { css, keyframes } from 'styled-components';
-import { Icon } from 'semantic-ui-react';
-import ProfileModal from './ProfileModal';
-import LoginModal from './LoginModal';
 import Calendar from './Calendar';
+import LoginModal from './LoginModal';
+import ProfileModal from './ProfileModal';
+import { Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logOutUser } from '../actions';

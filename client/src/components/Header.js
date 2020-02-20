@@ -1,12 +1,9 @@
-//logged in ? user avatar : "log in" button
-//somehow, my whole map is grabbing my headerconatiner style 2/3
-
 import React from 'react';
-import { Icon, Input, Menu } from 'semantic-ui-react';
-import SignUpModal from './SignUpModal';
-import LoginModal from './LoginModal';
-import HamburgerDrawer from './HamburgerDrawer';
 import styled from 'styled-components'
+import { Icon, Input, Menu } from 'semantic-ui-react';
+import HamburgerDrawer from './HamburgerDrawer';
+import LoginModal from './LoginModal';
+import SignUpModal from './SignUpModal';
 
 const Header = () => {
   return (
@@ -15,13 +12,6 @@ const Header = () => {
         <Menu.Item header style={menuStyle}>
           <Icon circular inverted color="teal" name="food" />
           Lunch With
-        </Menu.Item>
-        <Menu.Item>
-          <Input
-            className="icon"
-            icon="search"
-            placeholder="Search Professions..."
-          />
         </Menu.Item>
         <Menu.Item name="login">
           <LoginModal />

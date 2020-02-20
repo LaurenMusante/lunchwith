@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import { Icon } from 'semantic-ui-react'
 import axios from 'axios';
+import { Icon } from 'semantic-ui-react'
 import { sendUserToRedux } from '../actions';
 import { useDispatch } from 'react-redux';
 
@@ -10,8 +10,8 @@ import { useDispatch } from 'react-redux';
 const Modal = styled.div`
   background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
-  width: 60vw;
-  height: 70vh;
+  width: 55vw;
+  height: 80vh;
   z-index: 30;
   display: flex;
   justify-content: center;

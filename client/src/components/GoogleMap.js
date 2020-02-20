@@ -1,10 +1,7 @@
-//google-maps-react
 import React from 'react';
-import Invite from "./Invite"
 import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 import axios from 'axios';
 require('dotenv').config();
-//wrap map in styled component. 
 
 export class GoogleMap extends React.Component {
   constructor(props) {

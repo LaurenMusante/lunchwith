@@ -32,8 +32,8 @@ const CreateProfileWrapper = styled.div`
   background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   color: white;
-  width: 60vw;
-  height: 90vh;
+  width: 55vw;
+  height: 80vh;
   z-index: 30;
   display: flex;
   justify-content: center;

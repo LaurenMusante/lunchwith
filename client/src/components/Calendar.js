@@ -1,14 +1,14 @@
-import styled from 'styled-components'
 import React, { useState } from 'react';
+import styled from 'styled-components'
 import ReactDOM from 'react-dom';
-import SimpleReactCalendar from 'simple-react-calendar';
 import { Icon } from 'semantic-ui-react'
+import SimpleReactCalendar from 'simple-react-calendar';
 
 const CalendarWrapper = styled.div`
   background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   color: white;
-  width: 70vw;
+  width: 55vw;
   height: 80vh;
   z-index: 30;
   display: flex;

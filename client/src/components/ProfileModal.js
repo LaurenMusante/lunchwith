@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 import Sloth from './sloth.jpg'
@@ -9,7 +9,7 @@ const ProfileModalDiv = styled.div`
   background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   color: white;
-  width: 60vw;
+  width: 55vw;
   height: 90vh;
   z-index: 30;
   display: flex;

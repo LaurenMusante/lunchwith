@@ -1,43 +1,17 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components'
-import { Form, Icon } from 'semantic-ui-react';
-import axios from 'axios';
+import ReactDOM from 'react-dom';
+import { Icon } from 'semantic-ui-react';
 import { sendUserToRedux } from '../actions';
 import { useDispatch } from 'react-redux';
-
-const mentorOptions = [
-  { key: 'mr', text: 'Mentor', value: 'mentor' },
-  { key: 'me', text: 'Mentee', value: 'mentee' }
-];
-
-const skillOptions = [
-  { key: 'angular', text: 'Angular', value: 'angular' },
-  { key: 'css', text: 'CSS', value: 'css' },
-  { key: 'design', text: 'Graphic Design', value: 'design' },
-  { key: 'ember', text: 'Ember', value: 'ember' },
-  { key: 'html', text: 'HTML', value: 'html' },
-  { key: 'ia', text: 'Information Architecture', value: 'ia' },
-  { key: 'javascript', text: 'Javascript', value: 'javascript' },
-  { key: 'mech', text: 'Mechanical Engineering', value: 'mech' },
-  { key: 'meteor', text: 'Meteor', value: 'meteor' },
-  { key: 'node', text: 'NodeJS', value: 'node' },
-  { key: 'plumbing', text: 'Plumbing', value: 'plumbing' },
-  { key: 'python', text: 'Python', value: 'python' },
-  { key: 'rails', text: 'Rails', value: 'rails' },
-  { key: 'react', text: 'React', value: 'react' },
-  { key: 'repair', text: 'Kitchen Repair', value: 'repair' },
-  { key: 'ruby', text: 'Ruby', value: 'ruby' },
-  { key: 'ui', text: 'UI Design', value: 'ui' },
-  { key: 'ux', text: 'User Experience', value: 'ux' }
-];
+import axios from 'axios';
 
 const Modal = styled.div`
   background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   color: white;
-  width: 70vw;
-  height: 90vh;
+  width: 55vw;
+  height: 80vh;
   z-index: 30;
   display: flex;
   justify-content: center;
@@ -125,9 +99,6 @@ const SignUpModal = () => {
     }
   };
 
-  // const handleChange = (event, data) => {
-  //   this.setState({value: data.value});
-  // }
 
   const [isOpen, setIsOpen] = useState(false);
   if (!isOpen) {
@@ -174,21 +145,6 @@ const SignUpModal = () => {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          {/* <Form.Select
-            fluid
-            label="I'd like to be a..."
-            options={mentorOptions}
-            placeholder="Mentor"
-            onChange={handleChange}
-          /> */}
-          {/* <Form.Select
-            fluid
-            label="Select Your Top 3 Skills"
-            options={skillOptions}
-            multiple
-            select
-            placeholder="Skills"
-          />  */}
           <br></br>
           <SubmitButton type="submit">Submit</SubmitButton>
         </SignUpForm>
