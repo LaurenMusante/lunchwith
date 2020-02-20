@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 app.get('/api/v1/users', User.getAll);
 app.post('/api/v1/users', User.create);
 app.post('/api/v1/users/login', User.login);
+app.put('/api/v1/users/:userID', User.update);
 app.delete('/api/v1/users/me', Auth.verifyToken, User.delete);
 
 app.post('/api/v1/lunches', Auth.verifyToken, Lunch.create);

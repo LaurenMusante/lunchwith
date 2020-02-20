@@ -41,7 +41,7 @@ const User = {
       //need to return token still somehow
     } catch (error) {
       console.log(error);
-      
+
       if (error.routine === '_bt_check_unique') {
         return res.status(400).send({ 'message': 'User with that EMAIL already exist' })
       }
@@ -65,7 +65,7 @@ const User = {
     const text = 'SELECT * FROM users WHERE lower(email) = lower($1)';
     try {
       const { rows } = await db.query(text, [req.body.email]);
-      
+
       if (!rows[0]) {
         return res.status(400).send({ 'message': 'The credentials you provided are incorrect' });
       }
@@ -96,6 +96,37 @@ const User = {
       return res.status(200).send({ rows });
     } catch (error) {
       return res.status(400).send(error);
+    }
+  },
+
+  async update(req, res) {
+    const findOneQuery = 'SELECT * FROM users WHERE id=$1';
+    // const updateOneQuery = `UPDATE users
+    //   SET firstname=$1,lastname=$2,email=$3,password=$4bio=$5,mentor=$6,skills=$7
+    //   WHERE id=$8 returning *`;
+      const updateOneQuery = `UPDATE users
+      SET bio=$1,mentor=$2,skills=$3
+      WHERE id=$4 returning *`;
+    try {
+      console.log("try: ", req.params.userID);
+      const { rows } = await db.query(findOneQuery, [req.params.userID]);
+      if (!rows[0]) {
+        return res.status(404).send({ 'message': 'lunch not found' });
+      }
+      const values = [
+        // req.body.firstname || rows[0].firstname,
+        // req.body.lastname || rows[0].lastname,
+        // req.body.email || rows[0].email,
+        // req.body.password || rows[0].password,
+        req.body.bio || rows[0].bio,
+        req.body.mentor || rows[0].mentor,
+        req.body.skills || rows[0].skills,
+        req.params.id,
+      ];
+      const response = await db.query(updateOneQuery, values);
+      return res.status(200).send(response.rows[0]);
+    } catch (err) {
+      return res.status(400).send(err);
     }
   },
 
