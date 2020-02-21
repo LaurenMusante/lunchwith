@@ -1,68 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# _LunchWith_
 
-## Available Scripts
+#### _Match mentors and mentees up over lunch to discuss skills and career options. January - February 2020_
 
-In the project directory, you can run:
+#### By _**Mike McShane & Lauren Musante**_
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+_This is a desktop application that allows users to sign up for an account and create a profile that includes 3 technical skills that they are interested in either learning or teaching. User selects whether they are signing up to be a mentor or a mentee. Mentor adds their weekly availability. The application uses geolocation to plot mentor location on a Google map. Mentees can search for mentors based on their skills and locations. Once a mentor is selected based on availability and location, the mentee will send an invite to them along with 3 restaurant choices for where to meet up. This will add a lunch to their calendar as "pending." The mentor receives the invite with the list of restaurant choices and then either selects a restaurant and accepts the invitation, or declines the invitation all together, with an option to include a note. If the mentor accepts the invitation, it will be add a lunch as "confirmed" to both the mentor and mentee's profile._
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Setup/Installation Requirements
 
-### `npm test`
+PAGE CONTENT IS NOT UP AND RUNNING YET 12/6/19
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_Clone [this repository](https://github.com/LaurenMusante/lunchwith) to your desktop. Navigate to the root directory in your command line, then run "npm install" to install all packages and plug-ins required. Once this step is complete, run "npm run start" in your command line, and then alt-click on " http://localhost:3000/" if the page doesn't open automatically. Alternatively, you can copy " http://localhost:3000/" into your browser to view the page._
 
-### `npm run build`
+## Known Bugs
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_None_
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Support and contact details
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_Questions, comments, and feedback, please email: mmcshane10@gmail.com or Lauren.Musante@gmail.com_
 
-### `npm run eject`
+## Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_JavaScript, React, Redux, Express, PostgreSQL, NodeJS_
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### License
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+_Open source_
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright (c) 2019 **_Mike McShane & Lauren Musante_**
