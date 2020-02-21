@@ -10,8 +10,6 @@ _This is a desktop application that allows users to sign up for an account and c
 
 ## Setup/Installation Requirements
 
-PAGE CONTENT IS NOT UP AND RUNNING YET 12/6/19
-
 _Clone [this repository](https://github.com/LaurenMusante/lunchwith) to your desktop. Navigate to the root directory in your command line, then run "npm install" to install all packages and plug-ins required. Once this step is complete, run "npm run start" in your command line, and then alt-click on " http://localhost:3000/" if the page doesn't open automatically. Alternatively, you can copy " http://localhost:3000/" into your browser to view the page._
 
 ## Known Bugs
