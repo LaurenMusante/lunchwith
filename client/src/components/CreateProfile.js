@@ -110,10 +110,7 @@ const CreateProfile = () => {
   }
   
   const handleSubmit = async event => {
-    event.preventDefault();
-    console.log('form: ', bio, mentor, skills);
-    console.log('user ID is: ', userID);
-    
+    event.preventDefault();    
     setIsOpen(false);
     try {
       const response = await axios.put(`http://localhost:5000/api/v1/users/${userID}`, {

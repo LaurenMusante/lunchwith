@@ -22,7 +22,7 @@ const App = () => {
       <AppWrapper>
         <Header />
         <GoogleMap />
-        {/* <CreateProfile /> */}
+        <CreateProfile />
         {/* <Calendar /> */}
       </AppWrapper>
 

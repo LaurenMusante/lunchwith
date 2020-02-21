@@ -101,27 +101,23 @@ const User = {
 
   async update(req, res) {
     const findOneQuery = 'SELECT * FROM users WHERE id=$1';
-    // const updateOneQuery = `UPDATE users
-    //   SET firstname=$1,lastname=$2,email=$3,password=$4bio=$5,mentor=$6,skills=$7
-    //   WHERE id=$8 returning *`;
-      const updateOneQuery = `UPDATE users
+    const updateOneQuery = `UPDATE users
       SET bio=$1,mentor=$2,skills=$3
       WHERE id=$4 returning *`;
     try {
-      console.log("try: ", req.params.userID);
       const { rows } = await db.query(findOneQuery, [req.params.userID]);
+
       if (!rows[0]) {
         return res.status(404).send({ 'message': 'lunch not found' });
       }
+
+      console.log(req.body.bio, req.body.mentor, req.body.skills, req.params.id);
+
       const values = [
-        // req.body.firstname || rows[0].firstname,
-        // req.body.lastname || rows[0].lastname,
-        // req.body.email || rows[0].email,
-        // req.body.password || rows[0].password,
-        req.body.bio || rows[0].bio,
-        req.body.mentor || rows[0].mentor,
-        req.body.skills || rows[0].skills,
-        req.params.id,
+        req.body.bio,
+        req.body.mentor,
+        req.body.skills,
+        req.params.userID
       ];
       const response = await db.query(updateOneQuery, values);
       return res.status(200).send(response.rows[0]);
