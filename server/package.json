@@ -20,7 +20,7 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.8",
     "make-runnable": "^1.3.6",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "pg": "^7.18.1",
     "uuid": "^3.4.0"
   },
